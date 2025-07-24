@@ -31,22 +31,49 @@ body {
 /* --- Contenedor Principal de la Invitación --- */
 .invitation-container {
     background-color: rgba(245, 239, 225, 0.9);
-    background-image: url('images/Marco_Dorado.png');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center center;
+    background-image: none; 
+
     border: none;
     padding: 0;
     max-width: 680px;
     width: 100%;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     position: relative;
-    overflow: hidden;
+    overflow: auto;
     border-radius: 5px;
     margin-bottom: 20px;
     text-align: center;
     min-height: 500px;
 }
+
+/* --- Pseudo-elementos para los bordes repetitivos (tamaño general - escritorio) --- */
+.invitation-container::before,
+.invitation-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background-repeat: repeat-y;
+    background-size: contain;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Borde Izquierdo (Escritorio) */
+.invitation-container::before {
+    left: 0;
+    width: 80px; /* Ancho del borde en escritorio */
+    background-image: url('images/Marco_Vertical_Dorado.png');
+}
+
+/* Borde Derecho (Escritorio) */
+.invitation-container::after {
+    right: 0;
+    width: 80px; /* Ancho del borde en escritorio */
+    background-image: url('images/Marco_Vertical_Dorado.png');
+    transform: scaleX(-1); 
+}
+
 
 /* --- Marco Interior (contenedor del contenido) --- */
 .inner-frame {
@@ -54,17 +81,16 @@ body {
     box-shadow: none;
     background: transparent;
 
-    /* ¡PADDING VERTICAL REDUCIDO SIGNIFICATIVAMENTE! */
-    padding: 30px 60px; /* Antes: 50px 60px */
-
+    /* PADDING AJUSTADO PARA ESCRITORIO */
+    padding: 20px 160px; /* 20px arriba/abajo, 160px horizontal (80px de borde + 80px de margen interno) */
+    
     position: relative;
+    z-index: 2;
     border-radius: 5px;
     box-sizing: border-box;
     width: 100%;
     height: 100%;
 }
-
-/* --- Adornos de Esquina (REMOVIDOS) --- */
 
 
 /* --- Encabezado --- */
@@ -142,7 +168,7 @@ body {
 }
 
 .godparent-info {
-    font-size: 1.3em;
+    font-size: 1.3em; 
     margin-bottom: 15px;
     color: #555;
     font-style: italic;
@@ -324,9 +350,16 @@ body {
     .invitation-container {
         padding: 0;
     }
+
+    /* AJUSTE PARA BORDES LATERALES EN TABLETAS (768px) */
+    .invitation-container::before,
+    .invitation-container::after {
+        width: 60px; /* Bordes más delgados para tabletas */
+    }
+
     .inner-frame {
-        /* PADDING VERTICAL REDUCIDO para pantallas medianas */
-        padding: 20px 40px; /* Antes: 30px 40px */
+        /* PADDING AJUSTADO para tabletas (60px de borde + 40px de margen interno = 100px) */
+        padding: 15px 100px; 
     }
     .decorative-title {
         font-size: 2.8em;
@@ -362,9 +395,16 @@ body {
     .invitation-container {
         padding: 0;
     }
+
+    /* AJUSTE PARA BORDES LATERALES EN SMARTPHONES (480px) */
+    .invitation-container::before,
+    .invitation-container::after {
+        width: 40px; /* Bordes aún más delgados para smartphones */
+    }
+
     .inner-frame {
-        /* PADDING VERTICAL REDUCIDO para pantallas muy pequeñas */
-        padding: 15px 30px; /* Antes: 20px 30px */
+        /* PADDING AJUSTADO para smartphones (40px de borde + 20px de margen interno = 60px) */
+        padding: 10px 60px; 
     }
     .decorative-title {
         font-size: 2.2em;
