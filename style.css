@@ -1,405 +1,61 @@
-/* Paleta de Colores:
-   Azul Oscuro/Marino: #1A2E3B (Para textos principales, bordes fuertes)
-   Azul Medio: #3D6B8C (Para fondos de sección, textos secundarios, marcos)
-   Azul Claro/Cielo: #A6D0E7 (Acentos, fondos más claros, brillos)
-   Crema/Beige: #F5EFE1 (Fondo principal de la invitación)
-   Oro/Bronce: #C19A6B (Para adornos, líneas decorativas, brillo)
-   Blanco para texto claro: #FFFFFF
-*/
-
-/* --- Estilos Generales --- */
-body {
-    font-family: 'Cormorant Garamond', serif; /* Fuente principal para texto de cuerpo */
-    margin: 0;
-    padding: 20px;
-    background-image: url('images/fondo-invitacion.jpg'); /* ¡IMPORTANTE! Cambia 'fondo-invitacion.jpg' por el nombre real de tu imagen */
-    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
-    background-position: center center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll (efecto parallax) */
-    background-color: #DDEFF6; /* Color de respaldo si la imagen no carga */
-
-    display: flex;
-    justify-content: flex-start; /* Alinea los elementos al inicio (arriba) */
-    align-items: center; /* Centra los elementos horizontalmente */
-    min-height: 100vh;
-    color: #333;
-    box-sizing: border-box;
-    overflow-x: hidden; /* Previene el scroll horizontal no deseado */
-    flex-direction: column; /* Asegura que el contenedor de música se apile debajo */
-}
-
 /* --- Contenedor Principal de la Invitación --- */
 .invitation-container {
-    /* Fondo semi-transparente que se verá a través de la parte transparente del marco PNG */
     background-color: rgba(245, 239, 225, 0.9);
     
-    /* ESTILOS DE LA IMAGEN DEL MARCO QUE CAUSAN DISTORSIÓN PERO MUESTRAN TODO */
-    background-image: url('images/Marco_Dorado.png'); /* Ruta a tu imagen de marco PNG */
-    background-size: 100% 100%; /* ¡REVERTIDO! Estirará la imagen para ocupar el 100% del ancho y alto del contenedor */
-    background-repeat: no-repeat; /* Evita que la imagen del marco se repita */
-    background-position: center center; /* Centra la imagen del marco */
+    /* ¡CLAVE PARA QUE NO SE DEFORME! */
+    background-image: url('images/Marco_Dorado.png');
+    background-size: contain; /* Asegura que la imagen quepa dentro sin deformarse */
+    background-repeat: no-repeat;
+    background-position: center center;
 
-    /* ¡REVERTIDO! Eliminamos aspect-ratio, lo que permite la distorsión de la imagen */
-    /* aspect-ratio: 1024 / 1536; REMOVIDO */
+    /* ¡CLAVE! Esto fuerza al contenedor a tener la misma proporción que tu imagen del marco */
+    aspect-ratio: 1024 / 1536; /* Ancho de tu imagen / Alto de tu imagen (2:3) */
 
-    /* Eliminados bordes y patrones antiguos (ya no son necesarios) */
     border: none;
-    /* background-image: url('data:image/svg+xml;utf8,<svg ...'); REMOVIDO */
-
-    padding: 0; /* No padding exterior, el padding se controla con inner-frame */
-    max-width: 680px; /* Ancho máximo para la invitación */
+    padding: 0;
+    max-width: 680px;
     width: 100%;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Sombra exterior principal */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     position: relative;
-    /* ¡REVERTIDO! Oculta el contenido que se desborde */
-    overflow: hidden; 
-    border-radius: 5px; /* Sigue siendo útil para la sombra */
+    /* Esto es fundamental: permite que el contenido se desplace si es muy largo */
+    overflow: auto; /* Permite una barra de desplazamiento si el contenido es más largo */
+    border-radius: 5px;
     margin-bottom: 20px;
     text-align: center;
-    min-height: 500px; /* Restaurado para dar una altura mínima al contenedor */
+    /* min-height ya no es necesario con aspect-ratio */
 }
 
-/* --- Marco Interior (ahora es el contenedor del contenido dentro de la imagen del marco) --- */
+/* --- Marco Interior (contenedor del contenido) --- */
 .inner-frame {
-    /* Eliminados bordes y sombras antiguos */
     border: none;
     box-shadow: none;
-    background: transparent; /* Fondo transparente para que se vea el background-color del invitation-container */
+    background: transparent;
 
-    /* ¡REVERTIDO! Padding anterior que usaba cuando la imagen se distorsionaba */
-    padding: 70px 80px; /* Ejemplo: 70px arriba/abajo, 80px izquierda/derecha */
+    /* ¡ESTO ES CRÍTICO AHORA! Ajusta este padding para que el contenido quepa */
+    /* Si el contenido se sale por abajo, REDUCE el primer número (padding vertical) */
+    /* Si el contenido se sale por los lados, REDUCE el segundo número (padding horizontal) */
+    padding: 10% 12%; /* Ejemplo de padding inicial. Podrías necesitar 8% 10% o menos. */
     
-    position: relative; /* Asegura que el contenido esté por encima del fondo del marco */
-    border-radius: 5px; /* Mantenemos para consistencia si hay elementos redondeados */
-    box-sizing: border-box; /* Incluye el padding en el ancho/alto total */
-    width: 100%; /* Asegura que ocupe todo el espacio disponible */
-    height: 100%; /* Asegura que ocupe todo el espacio disponible */
-}
-
-/* --- Adornos de Esquina (REMOVIDOS - la imagen del marco los reemplaza) --- */
-/* Las reglas CSS para .corner-ornament y sus pseudo-elementos siguen eliminadas */
-
-
-/* --- Encabezado --- */
-.header {
-    margin-bottom: 30px;
-    padding-bottom: 20px;
     position: relative;
-    text-align: center;
-}
-
-.header::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 60px;
-    background-color: #A6D0E7;
-    border-radius: 50% 0 50% 0;
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%) rotate(45deg);
-    border: 2px solid #3D6B8C;
-    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
-
-
-.decorative-title {
-    font-family: 'Cinzel Decorative', cursive;
-    font-size: 3.8em;
-    color: #1A2E3B;
-    text-shadow: 4px 4px 6px rgba(0,0,0,0.25);
-    margin: 0 0 10px 0;
-    letter-spacing: 3px;
-    line-height: 1;
-}
-
-.signature-name {
-    font-family: 'Great Vibes', cursive;
-    font-size: 3.2em;
-    color: #3D6B8C;
-    margin: 0;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
-    line-height: 1.2;
-}
-
-.header-line {
-    width: 70%;
-    height: 2px;
-    background: linear-gradient(to right, transparent, #C19A6B, transparent);
-    margin: 20px auto 0;
-}
-
-/* --- Bloque de Texto de Contenido Principal --- */
-.content-text-block {
-    margin-bottom: 30px;
-    padding: 20px 0;
-    line-height: 1.8;
-    color: #4A4A4A;
-    text-align: center;
-}
-
-.greeting-message {
-    font-size: 1.2em;
-    font-style: italic;
-    margin-bottom: 10px;
-    color: #555;
-}
-
-.parents-names {
-    font-family: 'Cinzel Decorative', cursive;
-    font-size: 1.6em;
-    color: #1A2E3B;
-    margin: 5px 0 15px 0;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-}
-
-.godparent-info {
-    font-size: 1.1em;
-    margin-bottom: 15px;
-    color: #555;
-    font-style: italic;
-}
-
-.invitation-phrase {
-    font-family: 'Great Vibes', cursive;
-    font-size: 1.8em;
-    color: #3D6B8C;
-    margin-top: 20px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-}
-
-/* --- Detalles del Evento --- */
-.event-details {
-    background-color: #EAF2F8;
-    border: 1px solid #A6D0E7;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 30px;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
-    text-align: center;
-}
-
-.event-details p {
-    font-size: 1.15em;
-    margin: 8px 0;
-    color: #1A2E3B;
-    font-weight: 500;
-}
-
-.event-details strong {
-    color: #3D6B8C;
-}
-
-/* --- Sección de Cuenta Regresiva --- */
-.countdown-section {
-    background-color: #D6EAF8;
-    border: 2px solid #3D6B8C;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 30px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-}
-
-.countdown-title {
-    font-family: 'Cinzel Decorative', cursive;
-    font-size: 1.7em;
-    color: #1A2E3B;
-    margin-top: 0;
-    margin-bottom: 15px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-}
-
-.countdown-timer {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5em;
-    font-weight: 700;
-    color: #3498DB;
-    letter-spacing: 1px;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 8px;
-    border: 1px dashed #A6D0E7;
-}
-
-/* --- Botón RSVP --- */
-.rsvp-section {
-    margin-top: 40px;
-    position: relative;
-    text-align: center;
-}
-
-.rsvp-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 18px 35px;
-    background-color: #3498DB;
-    color: white;
-    text-decoration: none;
-    border-radius: 10px;
-    font-weight: bold;
-    font-size: 1.3em;
-    border: 3px solid #1A2E3B;
-    box-shadow: 7px 7px 15px rgba(0,0,0,0.3);
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    font-family: 'Cinzel Decorative', cursive;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.rsvp-button:hover {
-    background-color: #1A2E3B;
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 10px 10px 20px rgba(0,0,0,0.4);
-}
-
-.button-icon {
-    width: 24px;
-    height: 24px;
-    fill: white;
-}
-
-.rsvp-note {
-    font-size: 1em;
-    margin-top: 18px;
-    color: #555;
-    font-style: italic;
-    font-family: 'Cormorant Garamond', serif;
-}
-
-/* --- Información Adicional --- */
-.additional-info {
-    margin-top: 40px;
-    padding-top: 25px;
-    border-top: 1px dashed #A6D0E7;
-    color: #555;
-    font-size: 1em;
-    font-family: 'Cormorant Garamond', serif;
-    text-align: center;
-}
-.additional-info p {
-    margin-bottom: 5px;
-    color: #333;
-    font-weight: 500;
-}
-
-/* --- Estilos para el reproductor de música --- */
-.music-player-container {
-    margin-top: 20px;
-    text-align: center;
-    background-color: #F5EFE1; /* Fondo crema */
-    padding: 15px 20px;
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    border: 2px solid #3D6B8C; /* Borde azul medio */
-    max-width: 350px; /* Ancho máximo para el reproductor */
-    width: 90%;
-    margin-bottom: 20px; /* Espacio entre el reproductor y la invitación principal */
-}
-
-.music-player-container audio {
+    border-radius: 5px;
+    box-sizing: border-box;
     width: 100%;
-    max-width: 300px;
-    outline: none;
+    height: 100%;
 }
-
-.music-player-container audio::-webkit-media-controls-panel {
-    background-color: #A6D0E7;
-    color: #1A2E3B;
-}
-
-.music-player-container audio::-webkit-media-controls-play-button,
-.music-player-container audio::-webkit-media-controls-current-time-display,
-.music-player-container audio::-webkit-media-controls-time-remaining-display {
-    color: #1A2E3B;
-}
-
-
-.music-note {
-    font-size: 0.9em;
-    color: #555;
-    margin-top: 10px;
-    font-style: italic;
-}
-
 
 /* --- Media Queries (Responsividad) --- */
 @media (max-width: 768px) {
-    body {
-        padding: 15px;
-    }
-    .invitation-container {
-        /* Aquí el padding no es relevante para la distorsión, solo para el tamaño externo */
-        padding: 0;
-    }
+    /* ... otros estilos ... */
     .inner-frame {
-        /* REVERTIDO: Padding para pantallas medianas */
-        padding: 40px 50px; /* Ajuste para pantallas más pequeñas */
-    }
-    .decorative-title {
-        font-size: 2.8em;
-    }
-    .signature-name {
-        font-size: 2.5em;
-    }
-    .parents-names {
-        font-size: 1.4em;
-    }
-    .invitation-phrase {
-        font-size: 1.5em;
-    }
-    .countdown-timer {
-        font-size: 2em;
-    }
-    .rsvp-button {
-        padding: 15px 25px;
-        font-size: 1.1em;
-    }
-    .music-player-container {
-        max-width: 300px;
+        /* Ajusta el padding para pantallas medianas (puede que necesites reducirlo más) */
+        padding: 8% 10%; 
     }
 }
 
 @media (max-width: 480px) {
-    body {
-        padding: 10px;
-    }
-    .invitation-container {
-        padding: 0;
-    }
+    /* ... otros estilos ... */
     .inner-frame {
-        /* REVERTIDO: Padding para pantallas muy pequeñas */
-        padding: 30px 40px; /* Ajuste para pantallas muy pequeñas */
-    }
-    .decorative-title {
-        font-size: 2.2em;
-    }
-    .signature-name {
-        font-size: 1.8em;
-    }
-    .parents-names {
-        font-size: 1.2em;
-    }
-    .invitation-phrase {
-        font-size: 1.3em;
-    }
-    .countdown-timer {
-        font-size: 1.6em;
-        padding: 8px 15px;
-    }
-    .rsvp-button {
-        padding: 10px 20px;
-        font-size: 0.9em;
-    }
-    .music-player-container {
-        max-width: 250px;
-        padding: 10px 15px;
+        /* Ajusta el padding para pantallas pequeñas (móviles - probablemente necesites el menor padding aquí) */
+        padding: 6% 8%; /* O incluso menos, como 5% 6% */
     }
 }
