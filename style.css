@@ -9,45 +9,43 @@
 
 /* --- Estilos Generales --- */
 body {
-    font-family: 'Cormorant Garamond', serif; /* Fuente principal para texto de cuerpo */
+    font-family: 'Cormorant Garamond', serif;
     margin: 0;
     padding: 20px;
-    background-image: url('images/fondo-invitacion.jpg'); /* ¡IMPORTANTE! Cambia 'fondo-invitacion.jpg' por el nombre real de tu imagen */
-    background-size: cover; /* Asegura que la imagen cubra todo el fondo */
-    background-position: center center; /* Centra la imagen */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll (efecto parallax) */
-    background-color: #DDEFF6; /* Color de respaldo si la imagen no carga */
-
+    background-image: url('images/fondo-invitacion.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #DDEFF6;
     display: flex;
-    justify-content: flex-start; /* Alinea los elementos al inicio (arriba) */
-    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: flex-start;
+    align-items: center;
     min-height: 100vh;
     color: #333;
     box-sizing: border-box;
-    overflow-x: hidden; /* Previene el scroll horizontal no deseado */
-    flex-direction: column; /* Asegura que el contenedor de música se apile debajo */
+    overflow-x: hidden;
+    flex-direction: column;
 }
 
 /* --- Contenedor Principal de la Invitación --- */
 .invitation-container {
     background-color: rgba(245, 239, 225, 0.9);
     background-image: url('images/Marco_Dorado.png');
-    background-size: 100% 100%; /* Estirará la imagen para ocupar el 100% del ancho y alto */
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: center center;
-
     border: none;
     padding: 0;
     max-width: 680px;
     width: 100%;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     position: relative;
-    overflow: hidden; 
+    overflow: hidden;
     border-radius: 5px;
     margin-bottom: 20px;
     text-align: center;
-    min-height: 500px; /* Altura mínima del contenedor */
+    min-height: 500px;
 }
 
 /* --- Marco Interior (contenedor del contenido) --- */
@@ -56,9 +54,9 @@ body {
     box-shadow: none;
     background: transparent;
 
-    /* PADDING AJUSTADO */
-    padding: 50px 60px; 
-    
+    /* ¡PADDING VERTICAL REDUCIDO SIGNIFICATIVAMENTE! */
+    padding: 30px 60px; /* Antes: 50px 60px */
+
     position: relative;
     border-radius: 5px;
     box-sizing: border-box;
@@ -144,7 +142,7 @@ body {
 }
 
 .godparent-info {
-    font-size: 1.3em; /* Tamaño de fuente ajustado */
+    font-size: 1.3em;
     margin-bottom: 15px;
     color: #555;
     font-style: italic;
@@ -203,10 +201,10 @@ body {
 }
 
 .countdown-timer {
-    font-family: 'Cinzel Decorative', cursive; /* Fuente cambiada */
-    font-size: 2.5em; 
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 2.5em;
     font-weight: 700;
-    color: #3498DB; 
+    color: #3498DB;
     letter-spacing: 1px;
     text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
     display: inline-block;
@@ -282,14 +280,14 @@ body {
 .music-player-container {
     margin-top: 20px;
     text-align: center;
-    background-color: #F5EFE1; /* Fondo crema */
+    background-color: #F5EFE1;
     padding: 15px 20px;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    border: 2px solid #3D6B8C; /* Borde azul medio */
-    max-width: 350px; /* Ancho máximo para el reproductor */
+    border: 2px solid #3D6B8C;
+    max-width: 350px;
     width: 90%;
-    margin-bottom: 20px; /* Espacio entre el reproductor y la invitación principal */
+    margin-bottom: 20px;
 }
 
 .music-player-container audio {
@@ -327,8 +325,8 @@ body {
         padding: 0;
     }
     .inner-frame {
-        /* PADDING AJUSTADO para pantallas medianas */
-        padding: 30px 40px; 
+        /* PADDING VERTICAL REDUCIDO para pantallas medianas */
+        padding: 20px 40px; /* Antes: 30px 40px */
     }
     .decorative-title {
         font-size: 2.8em;
@@ -340,7 +338,7 @@ body {
         font-size: 1.4em;
     }
     .godparent-info {
-        font-size: 1.2em; /* Ajuste para móviles */
+        font-size: 1.2em;
     }
     .invitation-phrase {
         font-size: 1.5em;
@@ -365,8 +363,8 @@ body {
         padding: 0;
     }
     .inner-frame {
-        /* PADDING AJUSTADO para pantallas muy pequeñas */
-        padding: 20px 30px; 
+        /* PADDING VERTICAL REDUCIDO para pantallas muy pequeñas */
+        padding: 15px 30px; /* Antes: 20px 30px */
     }
     .decorative-title {
         font-size: 2.2em;
@@ -378,7 +376,7 @@ body {
         font-size: 1.2em;
     }
     .godparent-info {
-        font-size: 1.1em; /* Ajuste para móviles */
+        font-size: 1.1em;
     }
     .invitation-phrase {
         font-size: 1.3em;
