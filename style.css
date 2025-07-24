@@ -25,36 +25,38 @@ body {
     min-height: 100vh;
     color: #333;
     box-sizing: border-box;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Previene el scroll horizontal no deseado */
     flex-direction: column; /* Asegura que el contenedor de música se apile debajo */
 }
 
 /* --- Contenedor Principal de la Invitación --- */
 .invitation-container {
-    /* Mantenemos el fondo semi-transparente para la parte interior del marco */
+    /* Fondo semi-transparente que se verá a través de la parte transparente del marco PNG */
     background-color: rgba(245, 239, 225, 0.9);
     
-    /* NUEVOS AJUSTES PARA LA IMAGEN DEL MARCO */
-    background-image: url('images/Marco_Dorado.png');
-    background-size: contain; /* Mantendrá la proporción de la imagen */
-    background-repeat: no-repeat;
-    background-position: center center; /* Centra la imagen */
+    /* ¡NUEVOS ESTILOS PARA EL MARCO DE IMAGEN! */
+    background-image: url('images/Marco_Dorado.png'); /* Ruta a tu imagen de marco PNG */
+    background-size: contain; /* Escala la imagen para que quepa completamente sin distorsionarse */
+    background-repeat: no-repeat; /* Evita que la imagen del marco se repita */
+    background-position: center center; /* Centra la imagen del marco */
 
-    /* ¡NUEVO Y CLAVE! Asegura que el contenedor siempre tenga la misma proporción que tu imagen del marco */
-    aspect-ratio: 1024 / 1536; /* Ancho de la imagen (1024px) / Alto de la imagen (1536px) */
+    /* ¡CLAVE! Mantiene la proporción de tu imagen de marco (Ancho / Alto) */
+    aspect-ratio: 1024 / 1536; /* Basado en tus dimensiones: 1024px ancho / 1536px alto */
 
-    /* Eliminados bordes y patrones antiguos */
+    /* Eliminados bordes y patrones antiguos (ya no son necesarios) */
     border: none;
-    padding: 0; /* No padding exterior, el padding se controla con inner-frame */
+    /* background-image: url('data:image/svg+xml;utf8,<svg ...'); REMOVIDO */
+
+    padding: 0; /* Ya no es necesario un padding exterior aquí */
     max-width: 680px; /* Ancho máximo para la invitación */
     width: 100%;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Sombra exterior principal */
     position: relative;
-    overflow: hidden; /* Esto es importante para que el contenido no se salga */
+    /* ¡CAMBIO CLAVE! Permite la barra de desplazamiento si el contenido es más largo que el contenedor */
+    overflow: auto; 
     border-radius: 5px; /* Sigue siendo útil para la sombra */
     margin-bottom: 20px;
     text-align: center;
-    /* min-height: 500px;  Esta línea ya no es tan necesaria con aspect-ratio */
 }
 
 /* --- Marco Interior (ahora es el contenedor del contenido dentro de la imagen del marco) --- */
@@ -64,12 +66,13 @@ body {
     box-shadow: none;
     background: transparent; /* Fondo transparente para que se vea el background-color del invitation-container */
 
-    /* AJUSTE CLAVE: Relleno para que el contenido se ajuste dentro del marco PNG */
-    /* Estos valores son una nueva estimación. Deberás ajustarlos manualmente */
-    /* si el texto sigue encimado o hay demasiado espacio. Prueba valores más altos si es necesario. */
-    padding: 15% 18%; /* Empezamos con porcentajes para mejor responsividad */
-    /* Si el encimado es mucho, prueba valores más altos, ej: 20% 22% */
-    /* O si prefieres píxeles fijos: padding: 100px 120px; */
+    /* ¡AJUSTE CLAVE! Relleno para que el contenido se ajuste dentro del marco PNG */
+    /* Estos valores son una estimación. NECESITARÁS AJUSTARLOS MANUALMENTE */
+    /* si el texto sigue encimado o hay demasiado espacio. Prueba valores más altos/bajos. */
+    padding: 15% 18%; /* Ejemplo: 15% vertical (arriba/abajo), 18% horizontal (izq/der) */
+    /* Si el texto se sale por abajo, reduce el primer valor (ej. 12% 18%). */
+    /* Si el texto se sale por los lados, reduce el segundo valor (ej. 15% 15%). */
+    /* Si prefieres píxeles fijos: padding: 100px 120px; */
     
     position: relative; /* Asegura que el contenido esté por encima del fondo del marco */
     border-radius: 5px; /* Mantenemos para consistencia si hay elementos redondeados */
@@ -77,6 +80,10 @@ body {
     width: 100%; /* Asegura que ocupe todo el espacio disponible */
     height: 100%; /* Asegura que ocupe todo el espacio disponible */
 }
+
+/* --- Adornos de Esquina (REMOVIDOS - la imagen del marco los reemplaza) --- */
+/* Las reglas CSS para .corner-ornament y sus pseudo-elementos han sido eliminadas */
+
 
 /* --- Encabezado --- */
 .header {
@@ -315,4 +322,88 @@ body {
 .music-player-container audio::-webkit-media-controls-play-button,
 .music-player-container audio::-webkit-media-controls-current-time-display,
 .music-player-container audio::-webkit-media-controls-time-remaining-display {
-    color: #1A2E3B
+    color: #1A2E3B;
+}
+
+
+.music-note {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+
+/* --- Media Queries (Responsividad) --- */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    .invitation-container {
+        /* Con aspect-ratio, el padding exterior no cambia la proporción */
+        padding: 0;
+    }
+    .inner-frame {
+        /* AJUSTE CLAVE: Padding para pantallas medianas - experimenta con estos valores */
+        padding: 10% 12%; 
+    }
+    .decorative-title {
+        font-size: 2.8em;
+    }
+    .signature-name {
+        font-size: 2.5em;
+    }
+    .parents-names {
+        font-size: 1.4em;
+    }
+    .invitation-phrase {
+        font-size: 1.5em;
+    }
+    .countdown-timer {
+        font-size: 2em;
+    }
+    .rsvp-button {
+        padding: 15px 25px;
+        font-size: 1.1em;
+    }
+    .music-player-container {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    .invitation-container {
+        padding: 0;
+    }
+    .inner-frame {
+        /* AJUSTE CLAVE: Padding para pantallas muy pequeñas - experimenta con estos valores */
+        padding: 8% 10%; 
+    }
+    .decorative-title {
+        font-size: 2.2em;
+    }
+    .signature-name {
+        font-size: 1.8em;
+    }
+    .parents-names {
+        font-size: 1.2em;
+    }
+    .invitation-phrase {
+        font-size: 1.3em;
+    }
+    .countdown-timer {
+        font-size: 1.6em;
+        padding: 8px 15px;
+    }
+    .rsvp-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    .music-player-container {
+        max-width: 250px;
+        padding: 10px 15px;
+    }
+}
