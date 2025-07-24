@@ -1,0 +1,435 @@
+/* Paleta de Colores:
+   Azul Oscuro/Marino: #1A2E3B (Para textos principales, bordes fuertes)
+   Azul Medio: #3D6B8C (Para fondos de sección, textos secundarios, marcos)
+   Azul Claro/Cielo: #A6D0E7 (Acentos, fondos más claros, brillos)
+   Crema/Beige: #F5EFE1 (Fondo principal de la invitación)
+   Oro/Bronce: #C19A6B (Para adornos, líneas decorativas, brillo)
+   Blanco para texto claro: #FFFFFF
+*/
+
+/* --- Estilos Generales --- */
+body {
+    font-family: 'Cormorant Garamond', serif; /* Fuente principal para texto de cuerpo */
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(to bottom, #DDEFF6, #F5F5DC); /* Degradado suave azul/crema para el fondo de la página */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    flex-direction: column; /* Asegura que el contenedor de música se apile debajo */
+}
+
+/* --- Contenedor Principal de la Invitación --- */
+.invitation-container {
+    background-color: #F5EFE1; /* Fondo crema de la invitación */
+    border: 1px solid #C19A6B; /* Borde muy sutil para la capa base */
+    padding: 15px; /* Espacio para el borde exterior visible */
+    max-width: 680px; /* Ancho máximo para la invitación */
+    width: 100%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Sombra exterior principal */
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="%23A6D0E7" opacity="0.1"><path d="M0 0h50v50H0zm50 50h50v50H50z"/></svg>'); /* Patrón de fondo sutil */
+    background-size: 20px 20px;
+    margin-bottom: 20px; /* Espacio entre invitación y reproductor */
+    text-align: center; /* Centra el contenido general dentro de la invitación */
+}
+
+/* --- Marco Interior (simula el marco dorado y ornamentado) --- */
+.inner-frame {
+    border: 6px solid #C19A6B; /* Borde dorado principal */
+    padding: 30px 40px; /* Relleno dentro del marco */
+    background-color: #F8F8F0; /* Fondo del área de contenido */
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.2), 0 0 0 5px #3D6B8C; /* Sombra interior y un borde azul secundario */
+    position: relative;
+    border-radius: 5px;
+    /* Efecto de relieve en el borde */
+    background: linear-gradient(to bottom, #F8F8F0, #F0E8D9); /* Degradado sutil en el fondo interior */
+}
+
+/* --- Adornos de Esquina (Más visibles y elaborados) --- */
+/* Estos son elementos puramente decorativos para simular las esquinas de la imagen */
+.corner-ornament {
+    position: absolute;
+    width: 60px; /* Tamaño del adorno */
+    height: 60px;
+    background-color: transparent;
+    border: 4px solid #C19A6B; /* Borde dorado */
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+    z-index: 2; /* Para que estén encima del marco */
+}
+
+.corner-ornament::before,
+.corner-ornament::after {
+    content: '';
+    position: absolute;
+    background-color: #A6D0E7; /* Azul claro para la flor/hoja */
+    border-radius: 50%; /* Para simular formas orgánicas */
+    opacity: 0.8;
+}
+
+.corner-ornament.top-left { top: -20px; left: -20px; border-right: none; border-bottom: none; }
+.corner-ornament.top-left::before { width: 30px; height: 30px; top: 10px; left: 10px; }
+.corner-ornament.top-left::after { width: 20px; height: 20px; top: 30px; left: 25px; background-color: #3D6B8C; }
+
+.corner-ornament.top-right { top: -20px; right: -20px; border-left: none; border-bottom: none; }
+.corner-ornament.top-right::before { width: 30px; height: 30px; top: 10px; right: 10px; }
+.corner-ornament.top-right::after { width: 20px; height: 20px; top: 30px; right: 25px; background-color: #3D6B8C; }
+
+.corner-ornament.bottom-left { bottom: -20px; left: -20px; border-right: none; border-top: none; }
+.corner-ornament.bottom-left::before { width: 30px; height: 30px; bottom: 10px; left: 10px; }
+.corner-ornament.bottom-left::after { width: 20px; height: 20px; bottom: 30px; left: 25px; background-color: #3D6B8C; }
+
+.corner-ornament.bottom-right { bottom: -20px; right: -20px; border-left: none; border-top: none; }
+.corner-ornament.bottom-right::before { width: 30px; height: 30px; bottom: 10px; right: 10px; }
+.corner-ornament.bottom-right::after { width: 20px; height: 20px; bottom: 30px; right: 25px; background-color: #3D6B8C; }
+
+
+/* --- Encabezado --- */
+.header {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    position: relative;
+    text-align: center; /* Asegura que los títulos y línea estén centrados */
+}
+
+.header::after { /* Adorno floral central bajo el nombre */
+    content: '';
+    display: block;
+    width: 60px;
+    height: 60px;
+    background-color: #A6D0E7; /* Azul claro */
+    border-radius: 50% 0 50% 0; /* Forma de hoja */
+    position: absolute;
+    bottom: -15px; /* Ajusta la posición para que parezca una base */
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    border: 2px solid #3D6B8C; /* Borde azul medio */
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+
+.decorative-title {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 3.8em; /* Tamaño grande para el título */
+    color: #1A2E3B;
+    text-shadow: 4px 4px 6px rgba(0,0,0,0.25); /* Sombra más pronunciada */
+    margin: 0 0 10px 0;
+    letter-spacing: 3px;
+    line-height: 1;
+}
+
+.signature-name {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.2em; /* Tamaño aún más grande para el nombre */
+    color: #3D6B8C;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
+    line-height: 1.2;
+}
+
+.header-line {
+    width: 70%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #C19A6B, transparent); /* Línea dorada divisoria */
+    margin: 20px auto 0;
+}
+
+/* --- Bloque de Texto de Contenido Principal --- */
+.content-text-block {
+    margin-bottom: 30px;
+    padding: 20px 0;
+    line-height: 1.8;
+    color: #4A4A4A;
+    text-align: center; /* Centra todo el texto dentro de este bloque */
+}
+
+.greeting-message {
+    font-size: 1.2em;
+    font-style: italic;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.parents-names {
+    font-family: 'Cinzel Decorative', cursive; /* Fuente decorativa para los nombres */
+    font-size: 1.6em;
+    color: #1A2E3B;
+    margin: 5px 0 15px 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.godparent-info {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    color: #555;
+    font-style: italic;
+}
+
+.invitation-phrase {
+    font-family: 'Great Vibes', cursive; /* Fuente caligráfica para la frase final */
+    font-size: 1.8em;
+    color: #3D6B8C;
+    margin-top: 20px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* --- Detalles del Evento --- */
+.event-details {
+    background-color: #EAF2F8; /* Un azul muy pálido para los detalles */
+    border: 1px solid #A6D0E7;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    text-align: center; /* Centra el texto de los detalles del evento */
+}
+
+.event-details p {
+    font-size: 1.15em;
+    margin: 8px 0;
+    color: #1A2E3B;
+    font-weight: 500;
+}
+
+.event-details strong {
+    color: #3D6B8C;
+}
+
+/* --- Sección de Cuenta Regresiva --- */
+.countdown-section {
+    background-color: #D6EAF8; /* Azul claro para la sección de cuenta regresiva */
+    border: 2px solid #3D6B8C;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    position: relative;
+    overflow: hidden; /* Para contener los posibles adornos internos */
+    text-align: center; /* Centra el contenido de la cuenta regresiva */
+}
+
+.countdown-title {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1.7em;
+    color: #1A2E3B;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.countdown-timer {
+    font-family: 'Playfair Display', serif; /* Mantengo Playfair para los números por legibilidad */
+    font-size: 2.5em;
+    font-weight: 700;
+    color: #3498DB; /* Azul vibrante */
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.7); /* Fondo semi-transparente para los números */
+    border-radius: 8px;
+    border: 1px dashed #A6D0E7;
+}
+
+/* --- Botón RSVP --- */
+.rsvp-section {
+    margin-top: 40px;
+    position: relative;
+    text-align: center; /* Centra el botón y la nota */
+}
+
+.rsvp-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 35px;
+    background-color: #3498DB; /* Azul del botón */
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.3em;
+    border: 3px solid #1A2E3B; /* Borde azul oscuro */
+    box-shadow: 7px 7px 15px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    font-family: 'Cinzel Decorative', cursive;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.rsvp-button:hover {
+    background-color: #1A2E3B;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.4);
+}
+
+.button-icon {
+    width: 24px;
+    height: 24px;
+    fill: white;
+}
+
+.rsvp-note {
+    font-size: 1em;
+    margin-top: 18px;
+    color: #555;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* --- Información Adicional --- */
+.additional-info {
+    margin-top: 40px;
+    padding-top: 25px;
+    border-top: 1px dashed #A6D0E7;
+    color: #555;
+    font-size: 1em;
+    font-family: 'Cormorant Garamond', serif;
+    text-align: center; /* Centra la información adicional */
+}
+.additional-info p {
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: 500;
+}
+
+/* --- Estilos para el reproductor de música --- */
+.music-player-container {
+    margin-top: 30px;
+    text-align: center;
+    background-color: #F5EFE1; /* Fondo crema */
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border: 2px solid #3D6B8C; /* Borde azul medio */
+    max-width: 350px; /* Ancho máximo para el reproductor */
+    width: 90%;
+}
+
+.music-player-container audio {
+    width: 100%; /* El reproductor de audio ocupa el ancho completo del contenedor */
+    max-width: 300px; /* Para que no se estire demasiado en pantallas grandes */
+    outline: none; /* Quita el borde de enfoque */
+}
+
+/* Estilos para los controles del navegador (pueden variar según el navegador) */
+.music-player-container audio::-webkit-media-controls-panel {
+    background-color: #A6D0E7; /* Fondo azul claro para los controles */
+    color: #1A2E3B;
+}
+
+.music-player-container audio::-webkit-media-controls-play-button,
+.music-player-container audio::-webkit-media-controls-current-time-display,
+.music-player-container audio::-webkit-media-controls-time-remaining-display {
+    color: #1A2E3B; /* Color del texto y el botón de play */
+}
+
+
+.music-note {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 10px;
+    font-style: italic;
+}
+
+
+/* --- Media Queries (Responsividad) --- */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    .invitation-container {
+        padding: 10px;
+    }
+    .inner-frame {
+        padding: 20px 25px;
+    }
+    .decorative-title {
+        font-size: 2.8em;
+    }
+    .signature-name {
+        font-size: 2.5em;
+    }
+    .parents-names {
+        font-size: 1.4em;
+    }
+    .invitation-phrase {
+        font-size: 1.5em;
+    }
+    .countdown-timer {
+        font-size: 2em;
+    }
+    .rsvp-button {
+        padding: 15px 25px;
+        font-size: 1.1em;
+    }
+    .corner-ornament {
+        width: 40px;
+        height: 40px;
+        border-width: 3px;
+        top: -15px; left: -15px;
+    }
+    .corner-ornament.top-right { right: -15px; left: auto;}
+    .corner-ornament.bottom-left { bottom: -15px; left: -15px; }
+    .corner-ornament.bottom-right { bottom: -15px; right: -15px; left: auto;}
+    .corner-ornament::before { width: 20px; height: 20px; top: 5px; left: 5px; }
+    .corner-ornament::after { width: 15px; height: 15px; top: 15px; left: 15px; }
+    .music-player-container {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    .invitation-container {
+        padding: 5px;
+    }
+    .inner-frame {
+        padding: 15px 20px;
+        border-width: 4px;
+    }
+    .decorative-title {
+        font-size: 2.2em;
+    }
+    .signature-name {
+        font-size: 1.8em;
+    }
+    .parents-names {
+        font-size: 1.2em;
+    }
+    .invitation-phrase {
+        font-size: 1.3em;
+    }
+    .countdown-timer {
+        font-size: 1.6em;
+        padding: 8px 15px;
+    }
+    .rsvp-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    .corner-ornament {
+        width: 30px;
+        height: 30px;
+        border-width: 2px;
+        top: -10px; left: -10px;
+    }
+    .corner-ornament.top-right { right: -10px; left: auto;}
+    .corner-ornament.bottom-left { bottom: -10px; left: -10px; }
+    .corner-ornament.bottom-right { bottom: -10px; right: -10px; left: auto;}
+    .corner-ornament::before { width: 15px; height: 15px; top: 3px; left: 3px; }
+    .corner-ornament::after { width: 10px; height: 10px; top: 10px; left: 10px; }
+    .music-player-container {
+        max-width: 250px;
+        padding: 10px 15px;
+    }
+}
