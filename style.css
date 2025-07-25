@@ -188,7 +188,7 @@ body {
 .madrina-intro-text {
     font-size: 1.5em;
     color: #1A2E3B; /* Color oscuro para resaltar */
-    font-weight: bold; /* Negritas para resaltar */
+    font-weight: normal; /* Normal para no resaltar tanto */
     margin-top: 15px; /* Espacio por encima */
     margin-bottom: 15px; /* Espacio debajo */
     font-style: normal;
