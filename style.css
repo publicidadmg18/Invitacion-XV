@@ -66,7 +66,7 @@ body {
     top: 0;
     height: 100%;
     background-repeat: repeat-y;
-    background-size: contain;
+    background-size: 100% auto; /* <<-- MODIFICACIÓN AQUÍ para repetición sin huecos */
     z-index: 1;
     pointer-events: none;
 }
