@@ -112,9 +112,9 @@ body {
 
 .decorative-title {
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 3.8em;
-    color: #1A2E3B;
-    text-shadow: 4px 4px 6px rgba(0,0,0,0.25);
+    font-size: 3.0em; /* Tamaño disminuido */
+    color: #777; /* Color más suave */
+    text-shadow: 4px 4px 6px rgba(0,0,0,0.15);
     margin: 0 0 5px 0;
     letter-spacing: 3px;
     line-height: 1;
@@ -122,17 +122,17 @@ body {
 
 .signature-name {
     font-family: 'Great Vibes', cursive;
-    font-size: 3.2em;
+    font-size: 4.0em; /* Tamaño aumentado */
     color: #3D6B8C;
     margin: 0 0 5px 0; /* Espacio reducido */
     text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
     line-height: 1.2;
 }
 
-/* Estilo para "El Sueño Comienza" (significativamente más grande) */
+/* Estilo para "El Sueño Comienza" */
 .header-slogan {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 2.2em; /* Tamaño aumentado */
+    font-size: 2.2em;
     color: #3D6B8C; /* Un azul medio para destacarse */
     margin: 0 0 20px 0; /* Espacio debajo del eslogan */
     font-style: normal;
@@ -163,9 +163,9 @@ body {
     font-size: 1.5em; /* Tamaño base del texto general */
 }
 
-/* Estilo para "Con la bendición de Dios y en compañía de mis padres" (significativamente más grande y resaltado) */
+/* Estilo para "Con la bendición de Dios y en compañía de mis padres" */
 .parents-intro-text {
-    font-size: 1.8em; /* Tamaño aumentado */
+    font-size: 1.8em;
     color: #1A2E3B; /* Color oscuro para resaltar */
     font-weight: bold; /* Negritas para resaltar */
     margin-bottom: 10px; /* Espacio reducido con los nombres de los padres */
@@ -184,9 +184,9 @@ body {
     padding: 10px 20px; /* Ajusta el padding para el marco del p */
 }
 
-/* Estilo para "Y mi Madrina:" (resaltado) */
+/* Estilo para "Y mi Madrina:" */
 .madrina-intro-text {
-    font-size: 1.5em; /* Tamaño aumentado */
+    font-size: 1.5em;
     color: #1A2E3B; /* Color oscuro para resaltar */
     font-weight: bold; /* Negritas para resaltar */
     margin-top: 15px; /* Espacio por encima */
@@ -220,15 +220,13 @@ body {
 }
 
 
-/* --- Nueva sección para los Chambelanes (enmarcada) --- */
+/* --- Sección para los Chambelanes (SIN marco) --- */
 .chambelanes-section {
-    background-color: #F5EFE1; /* Fondo suave */
-    border: 2px solid #C19A6B; /* Borde decorativo como el enmarcado */
+    background-color: #f8f8f8; /* Un fondo muy claro si deseas mantener algo visual */
     border-radius: 8px;
     padding: 20px;
-    margin: 30px auto; /* Centrar el bloque y darle margen */
-    max-width: fit-content; /* Para que el marco se ajuste al contenido */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin: 20px auto; /* Reducir un poco el margen superior */
+    max-width: fit-content; /* Para que el fondo se ajuste al contenido */
     text-align: center;
     opacity: 0;
     animation: fadeInSlideUp 1s ease-out forwards;
@@ -237,23 +235,24 @@ body {
 
 .chambelanes-section h2 {
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 1.4em; /* REDUCIDO para que no destaque tanto */
-    color: #3D6B8C; /* Color más suave que los títulos de jerarquía superior */
+    font-size: 1.3em; /* Aún más reducido */
+    color: #555; /* Color más suave */
     margin-top: 0;
-    margin-bottom: 15px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    margin-bottom: 10px; /* Reducir margen inferior */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05); /* Sombra muy sutil */
 }
 
 .chambelanes-section p {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.15em;
-    color: #333;
-    margin: 8px 0;
+    font-size: 1.0em; /* Tamaño reducido */
+    color: #777; /* Color más suave */
+    margin: 5px 0; /* Reducir margen vertical */
 }
 
 .placeholder-chambelan {
     font-style: italic;
     opacity: 0.7;
+    font-size: 0.9em; /* Aún más pequeño para distinguirlos */
 }
 
 /* --- NUEVA SECCIÓN: Detalles del Evento (Fecha, Lugar, Dirección y Botón) --- */
@@ -553,13 +552,12 @@ body {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     margin: 10px auto; /* Centrar y dar espacio */
     padding: 10px 20px; /* Espacio interno del marco */
-    display: block; /* Por defecto, para ocupar su propio espacio */
-    max-width: fit-content; /* Se ajusta al contenido */
+    display: inline-block; /* Ajustado a inline-block para padres y madrina */
+    /* max-width: fit-content; */ /* Ya no es necesario como block */
 }
 
 /* Ajustes específicos para el enmarcado de la madrina */
 .godparent-info.enmarcado {
-    display: inline-block; /* Mantenerlo en línea con el texto "Y mi Madrina:" */
     margin: 5px; /* Pequeño margen para separarlo del texto adyacente */
     padding: 5px 10px;
 }
@@ -583,10 +581,10 @@ body {
         padding: 15px 100px;
     }
     .decorative-title {
-        font-size: 2.8em;
+        font-size: 2.4em; /* Ajuste para tabletas */
     }
     .signature-name {
-        font-size: 2.5em;
+        font-size: 3.2em; /* Ajuste para tabletas */
     }
     /* Nuevos tamaños para textos destacados en tabletas */
     .header-slogan {
@@ -661,81 +659,3 @@ body {
     .invitation-container {
         padding: 0;
     }
-
-    .invitation-container::before,
-    .invitation-container::after {
-        width: 40px;
-    }
-
-    .inner-frame {
-        padding: 10px 60px;
-    }
-    .decorative-title {
-        font-size: 2.2em;
-    }
-    .signature-name {
-        font-size: 1.8em;
-    }
-    /* Nuevos tamaños para textos destacados en móviles */
-    .header-slogan {
-        font-size: 1.5em;
-    }
-    .parents-intro-text {
-        font-size: 1.2em;
-    }
-    .madrina-intro-text {
-        font-size: 1.1em;
-    }
-    /* El texto general se ajusta por el 1.5em de cada clase, pero aquí reducimos el base */
-    .content-text-block p,
-    .details-section p,
-    .agenda-list li,
-    .location-address,
-    .additional-info {
-        font-size: 1em; /* Reducido aún más para pantallas muy pequeñas */
-    }
-    .parents-names, .godparent-info, .chambelanes-section p {
-        font-size: 0.9em; /* Ajuste específico para estos nombres */
-    }
-
-    .chambelanes-section h2, .details-section h2, .agenda-section h2, .countdown-section h2 {
-        font-size: 1.4em; /* Mantiene su tamaño relativo */
-    }
-    .invitation-phrase {
-        font-size: 1.3em; /* Mantiene su tamaño relativo */
-    }
-    /* Contador */
-    .countdown-unit {
-        padding: 10px 15px;
-        min-width: 70px;
-    }
-    .countdown-number {
-        font-size: 1.8em;
-    }
-    .countdown-label {
-        font-size: 0.75em;
-    }
-    .countdown-timer {
-        gap: 8px;
-    }
-    /* Botones y dirección en smartphones */
-    .rsvp-section {
-        gap: 10px;
-    }
-    .rsvp-button {
-        padding: 10px 20px;
-        font-size: 0.9em;
-    }
-    .location-map-block {
-        gap: 8px;
-    }
-    .location-button {
-        padding: 10px 20px;
-        font-size: 0.9em;
-    }
-
-    .music-player-container {
-        max-width: 250px;
-        padding: 10px 15px;
-    }
-}
