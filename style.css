@@ -38,13 +38,13 @@ body {
     box-sizing: border-box;
     overflow-x: hidden;
     flex-direction: column;
+    font-size: 1.5em; /* Aumento del tamaño de fuente base al 150% */
 }
 
 /* --- Contenedor Principal de la Invitación --- */
 .invitation-container {
     background-color: rgba(245, 239, 225, 0.9);
-    background-image: none; 
-
+    background-image: none;
     border: none;
     padding: 0;
     max-width: 680px;
@@ -83,7 +83,7 @@ body {
     right: 0;
     width: 80px;
     background-image: url('images/Marco_Vertical_Dorado.png');
-    transform: scaleX(-1); 
+    transform: scaleX(-1);
 }
 
 /* --- Marco Interior (contenedor del contenido) --- */
@@ -111,24 +111,6 @@ body {
     animation-delay: 0.5s;
 }
 
-/* El adorno debajo del encabezado se quita eliminando o comentando este bloque */
-/*
-.header::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 60px;
-    background-color: #A6D0E7;
-    border-radius: 50% 0 50% 0;
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%) rotate(45deg);
-    border: 2px solid #3D6B8C;
-    box-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
-*/
-
 .decorative-title {
     font-family: 'Cinzel Decorative', cursive;
     font-size: 3.8em;
@@ -137,6 +119,7 @@ body {
     margin: 0 0 5px 0;
     letter-spacing: 3px;
     line-height: 1;
+    font-size: 150%; /* Ajuste por si acaso hereda del body */
 }
 
 .signature-name {
@@ -146,6 +129,7 @@ body {
     margin: 0 0 10px 0;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
     line-height: 1.2;
+    font-size: 150%; /* Ajuste por si acaso hereda del body */
 }
 
 .header-line {
@@ -169,7 +153,6 @@ body {
 
 .greeting-message {
     font-size: 1.2em;
-    font-style: italic; /* Solo para esta instancia si no se aplica el estilo a "El Sueño Comienza" */
     margin-bottom: 10px;
     color: #555;
 }
@@ -180,14 +163,26 @@ body {
     color: #1A2E3B;
     margin: 5px 0 15px 0;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    display: inline-block; /* Para que el marco se ajuste al contenido */
 }
 
 .godparent-info {
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 1.3em; 
+    font-size: 1.3em;
     margin-bottom: 15px;
     color: #3D6B8C;
     font-style: normal;
+    display: inline-block; /* Para que el marco se ajuste al contenido */
+}
+
+.chambelanes-nombres {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.chambelanes-nombres span.enmarcado {
+    display: block; /* Para que cada nombre esté en una línea y el marco funcione bien */
+    margin: 5px auto; /* Centrar los nombres */
 }
 
 .invitation-phrase {
@@ -196,6 +191,14 @@ body {
     color: #3D6B8C;
     margin-top: 20px;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.rsvp-note {
+    font-size: 1em;
+    margin-top: 18px;
+    color: #555;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
 }
 
 /* --- Sección de Chambelanes (NUEVA) --- */
@@ -209,7 +212,8 @@ body {
     text-align: center;
     opacity: 0;
     animation: fadeInSlideUp 1s ease-out forwards;
-    animation-delay: 1.6s; /* Aparece después del texto principal */
+    animation-delay: 1.6s;
+    display: none; /* Ocultamos la sección original de chambelanes */
 }
 
 .chambelanes-section h2 {
@@ -228,7 +232,6 @@ body {
     margin: 5px 0;
 }
 
-
 /* --- Detalles del Evento / Agenda del Evento y Animación --- */
 .event-details {
     background-color: #EAF2F8;
@@ -240,7 +243,7 @@ body {
     text-align: center;
     opacity: 0;
     animation: fadeInSlideUp 1s ease-out forwards;
-    animation-delay: 2.3s; /* Ajuste del delay */
+    animation-delay: 2.3s;
 }
 
 .event-details h2 { /* Estilo para "Agenda del Evento" */
@@ -250,6 +253,7 @@ body {
     margin-top: 0;
     margin-bottom: 20px;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    font-size: 150%; /* Ajuste por si acaso hereda del body */
 }
 
 .event-details p {
@@ -277,7 +281,7 @@ body {
     color: #555;
     font-family: 'Cormorant Garamond', serif;
     line-height: 1.5;
-    margin: 0; /* Eliminar márgenes por defecto */
+    margin: 0;
     font-weight: 600;
 }
 
@@ -294,7 +298,7 @@ body {
     text-align: center;
     opacity: 0;
     animation: fadeInSlideUp 1s ease-out forwards;
-    animation-delay: 3.0s; /* Ajuste del delay */
+    animation-delay: 3.0s;
 }
 
 .countdown-section h2 { /* Estilo para "FALTAN SOLO" */
@@ -304,6 +308,7 @@ body {
     margin-top: 0;
     margin-bottom: 20px;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    font-size: 150%; /* Ajuste por si acaso hereda del body */
 }
 
 /* Estilos para el nuevo formato del contador */
@@ -313,7 +318,7 @@ body {
     gap: 15px;
     flex-wrap: wrap;
     padding: 10px 0;
-    background-color: transparent; 
+    background-color: transparent;
     border: none;
     border-radius: 0;
 }
@@ -340,6 +345,7 @@ body {
     line-height: 1;
     margin-bottom: 5px;
     text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    font-size: 150%; /* Ajuste por si acaso hereda del body */
 }
 
 .countdown-label {
@@ -348,8 +354,8 @@ body {
     color: #1A2E3B;
     text-transform: uppercase;
     font-weight: 600;
+    font-size: 150%; /* Ajuste por si acaso hereda del body */
 }
-
 
 /* --- Sección de Botón RSVP y Animación --- */
 .rsvp-section {
@@ -362,7 +368,7 @@ body {
     gap: 20px;
     opacity: 0;
     animation: fadeInSlideUp 1s ease-out forwards;
-    animation-delay: 3.7s; /* Ajuste del delay */
+    animation-delay: 3.7s;
 }
 
 /* Estilos para el botón RSVP */
@@ -423,14 +429,6 @@ body {
     fill: white;
 }
 
-.rsvp-note {
-    font-size: 1em;
-    margin-top: 18px;
-    color: #555;
-    font-style: italic;
-    font-family: 'Cormorant Garamond', serif;
-}
-
 /* --- Información Adicional y Animación --- */
 .additional-info {
     margin-top: 40px;
@@ -442,7 +440,7 @@ body {
     text-align: center;
     opacity: 0;
     animation: fadeInSlideUp 1s ease-out forwards;
-    animation-delay: 4.4s; /* Ajuste del delay */
+    animation-delay: 4.4s;
 }
 .additional-info p {
     margin-bottom: 5px;
@@ -452,7 +450,7 @@ body {
 
 /* --- Estilos para el reproductor de música (ahora al inicio) --- */
 .music-player-container {
-    margin: 20px auto; /* Centrar y añadir margen */
+    margin: 20px auto;
     text-align: center;
     background-color: #F5EFE1;
     padding: 15px 20px;
@@ -460,8 +458,7 @@ body {
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     border: 2px solid #3D6B8C;
     max-width: 350px;
-    width: 90%; /* Ajuste para responsividad */
-    /* Removimos la animación de aparición de aquí para que esté disponible de inmediato */
+    width: 90%;
 }
 
 .music-player-container audio {
@@ -488,6 +485,15 @@ body {
     font-style: italic;
 }
 
+/* --- Estilos para el marco --- */
+.enmarcado {
+    border: 2px solid #C19A6B; /* Color del marco (oro/bronce) */
+    padding: 5px 10px; /* Espacio dentro del marco */
+    border-radius: 5px; /* Bordes ligeramente redondeados */
+    display: inline-block; /* Para que el marco se ajuste al contenido */
+    background-color: #F5EFE1; /* Fondo del marco (crema/beige) */
+    margin: 5px; /* Espacio alrededor del marco */
+}
 
 /* --- Media Queries (Responsividad) --- */
 @media (max-width: 768px) {
@@ -504,7 +510,7 @@ body {
     }
 
     .inner-frame {
-        padding: 15px 100px; 
+        padding: 15px 100px;
     }
     .decorative-title {
         font-size: 2.8em;
@@ -512,14 +518,15 @@ body {
     .signature-name {
         font-size: 2.5em;
     }
-    .parents-names, .chambelanes-section p { /* Ajuste para chambelanes */
+    .parents-names {
         font-size: 1.4em;
-    }
-    .chambelanes-section h2 { /* Ajuste de título de chambelanes */
-        font-size: 1.6em;
     }
     .godparent-info {
         font-size: 1.2em;
+    }
+    .chambelanes-nombres span.enmarcado {
+        display: inline-block; /* Pueden estar en la misma línea en pantallas más grandes */
+        margin: 5px;
     }
     .invitation-phrase {
         font-size: 1.5em;
@@ -542,9 +549,9 @@ body {
 
     /* Botones y dirección en tabletas */
     .rsvp-section {
-        flex-direction: column; /* Volvemos a columna para mantener el espacio de la dirección */
+        flex-direction: column;
         justify-content: center;
-        gap: 15px; /* Menos espacio entre los elementos en RSVP */
+        gap: 15px;
     }
 
     .rsvp-button {
@@ -553,7 +560,7 @@ body {
     }
 
     .location-map-block {
-        gap: 10px; /* Menor espacio entre dirección y botón en tabletas */
+        gap: 10px;
     }
 
     .location-button {
@@ -580,7 +587,7 @@ body {
     }
 
     .inner-frame {
-        padding: 10px 60px; 
+        padding: 10px 60px;
     }
     .decorative-title {
         font-size: 2.2em;
@@ -588,14 +595,15 @@ body {
     .signature-name {
         font-size: 1.8em;
     }
-    .parents-names, .chambelanes-section p { /* Ajuste para chambelanes */
+    .parents-names {
         font-size: 1.2em;
-    }
-    .chambelanes-section h2 { /* Ajuste de título de chambelanes */
-        font-size: 1.4em;
     }
     .godparent-info {
         font-size: 1.1em;
+    }
+    .chambelanes-nombres span.enmarcado {
+        display: block; /* Asegurar que estén en líneas separadas en móviles */
+        margin: 5px auto;
     }
     .invitation-phrase {
         font-size: 1.3em;
