@@ -1,39 +1,56 @@
 document.addEventListener('DOMContentLoaded', function() {
-    startCountdown();
-});
+    const countdownElement = document.getElementById('countdown');
 
-function startCountdown() {
-    // Establece la fecha y hora objetivo para el 20 de septiembre de 2025 a las 00:00:00 (medianoche)
-    // Ajusta la hora si el evento empieza en un momento específico del día 20 de septiembre.
-    // Ejemplo para las 8 PM del 20 de septiembre: new Date("September 20, 2025 20:00:00").getTime();
-    const targetDate = new Date("September 20, 2025 00:00:00").getTime();
+    // Reemplaza esta fecha con la fecha y hora exacta de tu evento
+    // Formato: 'Mes Día, Año HH:MM:SS'
+    // Ejemplo: 'October 27, 2025 18:00:00' (27 de octubre de 2025 a las 6 PM)
+    const eventDate = new Date('October 27, 2025 18:00:00');
 
-    // Actualiza la cuenta regresiva cada segundo
-    const countdownInterval = setInterval(function() {
-        const now = new Date().getTime(); // Obtiene la fecha y hora actual
-        const distance = targetDate - now; // Calcula la distancia entre el objetivo y ahora
+    function updateCountdown() {
+        const now = new Date();
+        const timeDiff = eventDate.getTime() - now.getTime();
 
-        // Cálculos de tiempo para días, horas, minutos y segundos
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        // Muestra el resultado en el elemento con id "countdown"
-        if (document.getElementById("countdown")) {
-            if (distance > 0) {
-                document.getElementById("countdown").innerHTML = 
-                    days + " días " + 
-                    hours + " horas " +
-                    minutes + " minutos " + 
-                    seconds + " segundos ";
-            } else {
-                clearInterval(countdownInterval); // Detiene la cuenta regresiva
-                document.getElementById("countdown").innerHTML = "¡La fiesta ha comenzado! 🎉";
-            }
-        } else {
-            // Si el elemento no existe, detén el intervalo para evitar errores.
-            clearInterval(countdownInterval);
+        if (timeDiff <= 0) {
+            countdownElement.innerHTML = "¡Es hoy! ¡A celebrar!";
+            return;
         }
-    }, 1000); // Actualiza cada 1000 milisegundos (1 segundo)
-}
+
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        // Si quisieras segundos, descomenta la línea de abajo y agrégalos al HTML
+        // const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+        const formatNumber = (num) => num < 10 ? '0' + num : num;
+
+        // Construimos el nuevo HTML con recuadros individuales
+        let countdownHtml = `
+            <div class="countdown-unit">
+                <span class="countdown-number">${formatNumber(days)}</span>
+                <span class="countdown-label">Días</span>
+            </div>
+            <div class="countdown-unit">
+                <span class="countdown-number">${formatNumber(hours)}</span>
+                <span class="countdown-label">Horas</span>
+            </div>
+            <div class="countdown-unit">
+                <span class="countdown-number">${formatNumber(minutes)}</span>
+                <span class="countdown-label">Minutos</span>
+            </div>
+        `;
+        // Si incluyes segundos, añade:
+        /*
+        <div class="countdown-unit">
+            <span class="countdown-number">${formatNumber(seconds)}</span>
+            <span class="countdown-label">Segundos</span>
+        </div>
+        */
+
+        countdownElement.innerHTML = countdownHtml;
+    }
+
+    // Actualiza el contador cada segundo
+    setInterval(updateCountdown, 1000);
+    // Ejecuta la función una vez al cargar para evitar el retraso inicial
+    updateCountdown(); 
+});
