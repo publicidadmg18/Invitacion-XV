@@ -1,10 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     const countdownElement = document.getElementById('countdown');
 
-    // ¡IMPORTANTE! Fecha y hora exacta de tu evento.
-    // Formato: 'Mes Día, Año HH:MM:SS'
-    // Evento el 20 de septiembre de 2025 a las 19:30:00 (7:30 PM)
-    const eventDate = new Date('September 20, 2025 19:30:00'); // <--- FECHA Y HORA CORREGIDA AQUÍ
+    // ¡IMPORTANTE! Fecha y hora exacta de tu evento (recepción a las 19:30).
+    // El contador llegará a cero en esta fecha y hora.
+    const eventDate = new Date('September 20, 2025 19:30:00'); // <--- Contador hasta la Recepción
 
     function updateCountdown() {
         const now = new Date();
@@ -18,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
         const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000); // <--- SEGUNDOS AÑADIDOS
+        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000); // Segundos incluidos
 
         // Función para formatear números con un cero inicial si son menores a 10
         const formatNumber = (num) => num < 10 ? '0' + num : num;
