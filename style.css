@@ -201,6 +201,7 @@ body {
     margin-bottom: 0; /* Eliminar margen inferior si lo tenía */
     color: #3D6B8C;
     font-style: normal;
+    font-weight: normal;
 }
 
 .invitation-phrase {
