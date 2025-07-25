@@ -165,7 +165,7 @@ body {
 
 /* Estilo para "Con la bendición de Dios y en compañía de mis padres" */
 .parents-intro-text {
-    font-size: 1.8em;
+    font-size: 2.5em;
     color: #1A2E3B; /* Color oscuro para resaltar */
     font-weight: bold; /* Negritas para resaltar */
     margin-bottom: 10px; /* Espacio reducido con los nombres de los padres */
@@ -186,12 +186,12 @@ body {
 
 /* Estilo para "Y mi Madrina:" */
 .madrina-intro-text {
-    font-size: 1.5em;
+    font-size: 2.5em;
     color: #1A2E3B; /* Color oscuro para resaltar */
-    font-weight: normal; /* Normal para no resaltar tanto */
+    font-weight: bold; /* Normal para no resaltar tanto */
     margin-top: 15px; /* Espacio por encima */
     margin-bottom: 15px; /* Espacio debajo */
-    font-style: normal;
+    font-style: bold;
 }
 
 
