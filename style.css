@@ -236,11 +236,12 @@ body {
 
 .chambelanes-section h2 {
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 1.3em; /* Aún más reducido */
+    font-size: 1.1em; /* Aún más reducido */
     color: #555; /* Color más suave */
     margin-top: 0;
     margin-bottom: 10px; /* Reducir margen inferior */
     text-shadow: 1px 1px 2px rgba(0,0,0,0.05); /* Sombra muy sutil */
+    font-weight: normal;
 }
 
 .chambelanes-section p {
