@@ -66,7 +66,7 @@ body {
     top: 0;
     height: 100%;
     background-repeat: repeat-y;
-    background-size: 100% auto; /* <<-- MODIFICACIÓN AQUÍ para repetición sin huecos */
+    background-size: 100% auto; /* Para repetición sin huecos */
     z-index: 1;
     pointer-events: none;
 }
@@ -252,8 +252,6 @@ body {
     gap: 15px; /* Espacio entre los recuadros */
     flex-wrap: wrap; /* Permitir que los recuadros se envuelvan en pantallas pequeñas */
     padding: 10px 0; /* Ajuste del padding general del contenedor de recuadros */
-    /* Removemos los estilos de fondo y borde que antes tenía el .countdown-timer
-       ya que ahora irán en cada .countdown-unit */
     background-color: transparent; 
     border: none;
     border-radius: 0;
@@ -261,7 +259,7 @@ body {
 
 .countdown-unit {
     background-color: rgba(255, 255, 255, 0.8); /* Fondo de cada recuadro */
-    border: 1px dashed #A6D0E7; /* Borde de cada recuadro (el que antes estaba en .countdown-timer) */
+    border: 1px dashed #A6D0E7; /* Borde de cada recuadro */
     border-radius: 8px; /* Bordes redondeados para cada recuadro */
     padding: 15px 20px; /* Padding interno de cada recuadro */
     min-width: 90px; /* Ancho mínimo para consistencia */
@@ -292,17 +290,22 @@ body {
 }
 
 
-/* --- Botón RSVP y Animación --- */
+/* --- Sección de Botones (RSVP y Ubicación) y Animación --- */
 .rsvp-section {
     margin-top: 40px;
     position: relative;
     text-align: center;
+    display: flex; /* Para alinear los botones */
+    flex-direction: column; /* Apilar botones verticalmente por defecto */
+    align-items: center; /* Centrar los botones */
+    gap: 20px; /* Espacio entre botones */
     /* Animación */
     opacity: 0; /* Empieza invisible */
     animation: fadeInSlideUp 1s ease-out forwards;
     animation-delay: 3.3s; /* Aparece después del contador */
 }
 
+/* Estilos para el botón RSVP */
 .rsvp-button {
     display: inline-flex;
     align-items: center;
@@ -317,7 +320,7 @@ body {
     border: 3px solid #1A2E3B;
     box-shadow: 7px 7px 15px rgba(0,0,0,0.3);
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    font-family: 'Cinzel Decorative', cursive;
+    font-family: 'Cinzel Decorative', cursive; /* Estilo victoriano */
     letter-spacing: 1px;
     text-transform: uppercase;
 }
@@ -327,6 +330,33 @@ body {
     transform: translateY(-3px) scale(1.02);
     box-shadow: 10px 10px 20px rgba(0,0,0,0.4);
 }
+
+/* Estilos para el botón de Ubicación (NUEVO) */
+.location-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 35px;
+    background-color: #C19A6B; /* Color oro/bronce de tu paleta */
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.3em;
+    border: 3px solid #1A2E3B;
+    box-shadow: 7px 7px 15px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    font-family: 'Cinzel Decorative', cursive; /* Manteniendo el estilo victoriano */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.location-button:hover {
+    background-color: #9B7C59; /* Un tono más oscuro de oro/bronce al pasar el ratón */
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.4);
+}
+
 
 .button-icon {
     width: 24px;
@@ -456,7 +486,14 @@ body {
         gap: 12px;
     }
 
-    .rsvp-button {
+    /* Botones en tabletas */
+    .rsvp-section {
+        flex-direction: row; /* En tabletas, los botones pueden ir lado a lado */
+        justify-content: center;
+        gap: 30px; /* Más espacio entre ellos */
+    }
+
+    .rsvp-button, .location-button {
         padding: 15px 25px;
         font-size: 1.1em;
     }
@@ -512,7 +549,12 @@ body {
     .countdown-timer {
         gap: 8px; /* Espacio más pequeño entre recuadros en smartphones */
     }
-    .rsvp-button {
+    /* Botones en smartphones */
+    .rsvp-section {
+        flex-direction: column; /* Apilados verticalmente en smartphones */
+        gap: 15px; /* Espacio entre botones */
+    }
+    .rsvp-button, .location-button {
         padding: 10px 20px;
         font-size: 0.9em;
     }
