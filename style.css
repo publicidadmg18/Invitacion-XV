@@ -38,7 +38,6 @@ body {
     box-sizing: border-box;
     overflow-x: hidden;
     flex-direction: column;
-    /* font-size: 1.5em; QUITAR ESTO DE AQUÍ, SE APLICARÁ ESPECÍFICAMENTE */
 }
 
 /* --- Contenedor Principal de la Invitación --- */
@@ -102,7 +101,7 @@ body {
 
 /* --- Encabezado y Animación --- */
 .header {
-    margin-bottom: 30px;
+    margin-bottom: 10px; /* Reducir espacio entre header y contenido */
     padding-bottom: 20px;
     position: relative;
     text-align: center;
@@ -113,7 +112,7 @@ body {
 
 .decorative-title {
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 3.8em; /* Mantiene su tamaño original, no afectado por el 150% */
+    font-size: 3.8em;
     color: #1A2E3B;
     text-shadow: 4px 4px 6px rgba(0,0,0,0.25);
     margin: 0 0 5px 0;
@@ -123,24 +122,34 @@ body {
 
 .signature-name {
     font-family: 'Great Vibes', cursive;
-    font-size: 3.2em; /* Mantiene su tamaño original */
+    font-size: 3.2em;
     color: #3D6B8C;
-    margin: 0 0 10px 0;
+    margin: 0 0 5px 0; /* Espacio reducido */
     text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
     line-height: 1.2;
+}
+
+/* Estilo para "El Sueño Comienza" (significativamente más grande) */
+.header-slogan {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2em; /* Tamaño aumentado */
+    color: #3D6B8C; /* Un azul medio para destacarse */
+    margin: 0 0 20px 0; /* Espacio debajo del eslogan */
+    font-style: normal;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 .header-line {
     width: 70%;
     height: 2px;
     background: linear-gradient(to right, transparent, #C19A6B, transparent);
-    margin: 20px auto 0;
+    margin: 10px auto 0; /* Espacio ajustado */
 }
 
 /* --- Bloque de Texto de Contenido Principal y Animación --- */
 .content-text-block {
     margin-bottom: 30px;
-    padding: 20px 0;
+    padding: 10px 0; /* Reducir el padding-top para acercar el texto */
     line-height: 1.8;
     color: #4A4A4A;
     text-align: center;
@@ -149,46 +158,61 @@ body {
     animation-delay: 1.2s;
 }
 
-/* Afecta a todos los <p> dentro de content-text-block */
+/* Texto general dentro de content-text-block */
 .content-text-block p {
-    font-size: 1.5em; /* Aumenta el tamaño del texto en un 150% */
+    font-size: 1.5em; /* Tamaño base del texto general */
 }
 
-.greeting-message {
-    margin-bottom: 10px;
-    color: #555;
+/* Estilo para "Con la bendición de Dios y en compañía de mis padres" (significativamente más grande y resaltado) */
+.parents-intro-text {
+    font-size: 1.8em; /* Tamaño aumentado */
+    color: #1A2E3B; /* Color oscuro para resaltar */
+    font-weight: bold; /* Negritas para resaltar */
+    margin-bottom: 10px; /* Espacio reducido con los nombres de los padres */
 }
+
 
 /* Estilo para los padres (ahora es directamente la clase parents-names) */
 .parents-names {
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 1.6em; /* Mantiene su tamaño relativo, ahora sobre el 150% base */
+    font-size: 1.6em;
     color: #1A2E3B;
     margin: 5px auto 15px auto; /* Centrar el bloque enmarcado */
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     /* Estas propiedades son importantes para que .enmarcado funcione en un p */
-    display: inline-block; /* Para que el marco se ajuste al contenido, o block si quieres que ocupe todo el ancho disponible */
+    display: inline-block; /* Para que el marco se ajuste al contenido */
     padding: 10px 20px; /* Ajusta el padding para el marco del p */
 }
 
+/* Estilo para "Y mi Madrina:" (resaltado) */
+.madrina-intro-text {
+    font-size: 1.5em; /* Tamaño aumentado */
+    color: #1A2E3B; /* Color oscuro para resaltar */
+    font-weight: bold; /* Negritas para resaltar */
+    margin-top: 15px; /* Espacio por encima */
+    margin-bottom: 15px; /* Espacio debajo */
+    font-style: normal;
+}
+
+
 .godparent-info {
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 1.3em; /* Mantiene su tamaño relativo */
-    margin-bottom: 15px;
+    font-size: 1.3em;
+    margin-bottom: 0; /* Eliminar margen inferior si lo tenía */
     color: #3D6B8C;
     font-style: normal;
 }
 
 .invitation-phrase {
     font-family: 'Great Vibes', cursive;
-    font-size: 1.8em; /* Mantiene su tamaño relativo */
+    font-size: 1.8em;
     color: #3D6B8C;
     margin-top: 20px;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 .rsvp-note {
-    /* font-size: 1em; ya se afecta por .content-text-block p */
+    font-size: 1.5em; /* Afectado por .content-text-block p */
     margin-top: 18px;
     color: #555;
     font-style: italic;
@@ -213,8 +237,8 @@ body {
 
 .chambelanes-section h2 {
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 1.8em; /* Mantiene su tamaño original */
-    color: #1A2E3B;
+    font-size: 1.4em; /* REDUCIDO para que no destaque tanto */
+    color: #3D6B8C; /* Color más suave que los títulos de jerarquía superior */
     margin-top: 0;
     margin-bottom: 15px;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
@@ -222,7 +246,7 @@ body {
 
 .chambelanes-section p {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.15em; /* Tamaño relativo, afectado por 150% base */
+    font-size: 1.15em;
     color: #333;
     margin: 8px 0;
 }
@@ -248,7 +272,7 @@ body {
 
 .details-section h2 {
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 2em; /* Mantiene su tamaño original */
+    font-size: 2em;
     color: #1A2E3B;
     margin-top: 0;
     margin-bottom: 20px;
@@ -283,7 +307,7 @@ body {
 
 .agenda-section h2 {
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 2em; /* Mantiene su tamaño original */
+    font-size: 2em;
     color: #1A2E3B;
     margin-top: 0;
     margin-bottom: 20px;
@@ -342,7 +366,7 @@ body {
 
 .countdown-section h2 { /* Estilo para "FALTAN SOLO" */
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 2em; /* Mantiene su tamaño original */
+    font-size: 2em;
     color: #1A2E3B;
     margin-top: 0;
     margin-bottom: 20px;
@@ -377,7 +401,7 @@ body {
 
 .countdown-number {
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 2.5em; /* Mantiene su tamaño original */
+    font-size: 2.5em;
     font-weight: 700;
     color: #3498DB;
     line-height: 1;
@@ -387,7 +411,7 @@ body {
 
 .countdown-label {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 0.9em; /* Mantiene su tamaño original */
+    font-size: 0.9em;
     color: #1A2E3B;
     text-transform: uppercase;
     font-weight: 600;
@@ -418,7 +442,7 @@ body {
     text-decoration: none;
     border-radius: 10px;
     font-weight: bold;
-    font-size: 1.3em; /* Mantiene su tamaño original */
+    font-size: 1.3em;
     border: 3px solid #1A2E3B;
     box-shadow: 7px 7px 15px rgba(0,0,0,0.3);
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
@@ -444,7 +468,7 @@ body {
     text-decoration: none;
     border-radius: 10px;
     font-weight: bold;
-    font-size: 1.3em; /* Mantiene su tamaño original */
+    font-size: 1.3em;
     border: 3px solid #1A2E3B;
     box-shadow: 7px 7px 15px rgba(0,0,0,0.3);
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
@@ -564,6 +588,16 @@ body {
     .signature-name {
         font-size: 2.5em;
     }
+    /* Nuevos tamaños para textos destacados en tabletas */
+    .header-slogan {
+        font-size: 1.8em;
+    }
+    .parents-intro-text {
+        font-size: 1.5em;
+    }
+    .madrina-intro-text {
+        font-size: 1.3em;
+    }
     /* El texto general se ajusta por el 1.5em de cada clase, pero aquí reducimos el base */
     .content-text-block p,
     .details-section p,
@@ -641,6 +675,16 @@ body {
     }
     .signature-name {
         font-size: 1.8em;
+    }
+    /* Nuevos tamaños para textos destacados en móviles */
+    .header-slogan {
+        font-size: 1.5em;
+    }
+    .parents-intro-text {
+        font-size: 1.2em;
+    }
+    .madrina-intro-text {
+        font-size: 1.1em;
     }
     /* El texto general se ajusta por el 1.5em de cada clase, pero aquí reducimos el base */
     .content-text-block p,
