@@ -38,7 +38,7 @@ body {
     box-sizing: border-box;
     overflow-x: hidden;
     flex-direction: column;
-    font-size: 1.5em; /* Aumento del tamaño de fuente base al 150% */
+    /* font-size: 1.5em; QUITAR ESTO DE AQUÍ, SE APLICARÁ ESPECÍFICAMENTE */
 }
 
 /* --- Contenedor Principal de la Invitación --- */
@@ -113,23 +113,21 @@ body {
 
 .decorative-title {
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 3.8em;
+    font-size: 3.8em; /* Mantiene su tamaño original, no afectado por el 150% */
     color: #1A2E3B;
     text-shadow: 4px 4px 6px rgba(0,0,0,0.25);
     margin: 0 0 5px 0;
     letter-spacing: 3px;
     line-height: 1;
-    font-size: 150%; /* Ajuste por si acaso hereda del body */
 }
 
 .signature-name {
     font-family: 'Great Vibes', cursive;
-    font-size: 3.2em;
+    font-size: 3.2em; /* Mantiene su tamaño original */
     color: #3D6B8C;
     margin: 0 0 10px 0;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
     line-height: 1.2;
-    font-size: 150%; /* Ajuste por si acaso hereda del body */
 }
 
 .header-line {
@@ -151,74 +149,71 @@ body {
     animation-delay: 1.2s;
 }
 
+/* Afecta a todos los <p> dentro de content-text-block */
+.content-text-block p {
+    font-size: 1.5em; /* Aumenta el tamaño del texto en un 150% */
+}
+
 .greeting-message {
-    font-size: 1.2em;
     margin-bottom: 10px;
     color: #555;
 }
 
+/* Estilo para los padres (ahora es directamente la clase parents-names) */
 .parents-names {
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 1.6em;
+    font-size: 1.6em; /* Mantiene su tamaño relativo, ahora sobre el 150% base */
     color: #1A2E3B;
-    margin: 5px 0 15px 0;
+    margin: 5px auto 15px auto; /* Centrar el bloque enmarcado */
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-    display: inline-block; /* Para que el marco se ajuste al contenido */
+    /* Estas propiedades son importantes para que .enmarcado funcione en un p */
+    display: inline-block; /* Para que el marco se ajuste al contenido, o block si quieres que ocupe todo el ancho disponible */
+    padding: 10px 20px; /* Ajusta el padding para el marco del p */
 }
 
 .godparent-info {
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 1.3em;
+    font-size: 1.3em; /* Mantiene su tamaño relativo */
     margin-bottom: 15px;
     color: #3D6B8C;
     font-style: normal;
-    display: inline-block; /* Para que el marco se ajuste al contenido */
-}
-
-.chambelanes-nombres {
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-
-.chambelanes-nombres span.enmarcado {
-    display: block; /* Para que cada nombre esté en una línea y el marco funcione bien */
-    margin: 5px auto; /* Centrar los nombres */
 }
 
 .invitation-phrase {
     font-family: 'Great Vibes', cursive;
-    font-size: 1.8em;
+    font-size: 1.8em; /* Mantiene su tamaño relativo */
     color: #3D6B8C;
     margin-top: 20px;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 .rsvp-note {
-    font-size: 1em;
+    /* font-size: 1em; ya se afecta por .content-text-block p */
     margin-top: 18px;
     color: #555;
     font-style: italic;
     font-family: 'Cormorant Garamond', serif;
 }
 
-/* --- Sección de Chambelanes (NUEVA) --- */
+
+/* --- Nueva sección para los Chambelanes (enmarcada) --- */
 .chambelanes-section {
     background-color: #F5EFE1; /* Fondo suave */
-    border: 1px dashed #C19A6B; /* Borde decorativo */
+    border: 2px solid #C19A6B; /* Borde decorativo como el enmarcado */
     border-radius: 8px;
     padding: 20px;
-    margin-bottom: 30px;
+    margin: 30px auto; /* Centrar el bloque y darle margen */
+    max-width: fit-content; /* Para que el marco se ajuste al contenido */
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     text-align: center;
     opacity: 0;
     animation: fadeInSlideUp 1s ease-out forwards;
     animation-delay: 1.6s;
-    display: none; /* Ocultamos la sección original de chambelanes */
 }
 
 .chambelanes-section h2 {
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 1.8em;
+    font-size: 1.8em; /* Mantiene su tamaño original */
     color: #1A2E3B;
     margin-top: 0;
     margin-bottom: 15px;
@@ -227,13 +222,18 @@ body {
 
 .chambelanes-section p {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.15em;
+    font-size: 1.15em; /* Tamaño relativo, afectado por 150% base */
     color: #333;
-    margin: 5px 0;
+    margin: 8px 0;
 }
 
-/* --- Detalles del Evento / Agenda del Evento y Animación --- */
-.event-details {
+.placeholder-chambelan {
+    font-style: italic;
+    opacity: 0.7;
+}
+
+/* --- NUEVA SECCIÓN: Detalles del Evento (Fecha, Lugar, Dirección y Botón) --- */
+.details-section {
     background-color: #EAF2F8;
     border: 1px solid #A6D0E7;
     border-radius: 8px;
@@ -246,28 +246,67 @@ body {
     animation-delay: 2.3s;
 }
 
-.event-details h2 { /* Estilo para "Agenda del Evento" */
+.details-section h2 {
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 2em;
+    font-size: 2em; /* Mantiene su tamaño original */
     color: #1A2E3B;
     margin-top: 0;
     margin-bottom: 20px;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-    font-size: 150%; /* Ajuste por si acaso hereda del body */
 }
 
-.event-details p {
-    font-size: 1.15em;
+.details-section p {
+    font-size: 1.5em; /* Aumenta el tamaño del texto en un 150% */
     margin: 8px 0;
     color: #1A2E3B;
     font-weight: 500;
 }
 
-.event-details strong {
+.details-section strong {
     color: #3D6B8C;
 }
 
-/* Contenedor para la dirección y el botón de mapa */
+
+/* --- SECCIÓN ACTUALIZADA: Agenda del Evento --- */
+.agenda-section {
+    background-color: #EAF2F8;
+    border: 1px solid #A6D0E7;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    text-align: center;
+    opacity: 0;
+    animation: fadeInSlideUp 1s ease-out forwards;
+    animation-delay: 2.7s; /* Ligeramente después de Detalles */
+}
+
+.agenda-section h2 {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 2em; /* Mantiene su tamaño original */
+    color: #1A2E3B;
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.agenda-list {
+    list-style: none; /* Quita los puntos de la lista */
+    padding: 0;
+    margin: 0 auto;
+    max-width: 350px; /* Limita el ancho para centrar mejor */
+    text-align: left; /* Alinea los ítems de la lista a la izquierda */
+}
+
+.agenda-list li {
+    font-size: 1.5em; /* Aumenta el tamaño del texto en un 150% */
+    margin-bottom: 10px;
+    color: #1A2E3B;
+    font-weight: 500;
+}
+
+
+/* --- Contenedor para la dirección y el botón de mapa --- */
 .location-map-block {
     margin-top: 25px;
     display: flex;
@@ -277,7 +316,7 @@ body {
 }
 
 .location-address {
-    font-size: 1.1em;
+    font-size: 1.5em; /* Aumenta el tamaño del texto en un 150% */
     color: #555;
     font-family: 'Cormorant Garamond', serif;
     line-height: 1.5;
@@ -303,12 +342,11 @@ body {
 
 .countdown-section h2 { /* Estilo para "FALTAN SOLO" */
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 2em;
+    font-size: 2em; /* Mantiene su tamaño original */
     color: #1A2E3B;
     margin-top: 0;
     margin-bottom: 20px;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-    font-size: 150%; /* Ajuste por si acaso hereda del body */
 }
 
 /* Estilos para el nuevo formato del contador */
@@ -339,22 +377,20 @@ body {
 
 .countdown-number {
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 2.5em;
+    font-size: 2.5em; /* Mantiene su tamaño original */
     font-weight: 700;
     color: #3498DB;
     line-height: 1;
     margin-bottom: 5px;
     text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-    font-size: 150%; /* Ajuste por si acaso hereda del body */
 }
 
 .countdown-label {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 0.9em;
+    font-size: 0.9em; /* Mantiene su tamaño original */
     color: #1A2E3B;
     text-transform: uppercase;
     font-weight: 600;
-    font-size: 150%; /* Ajuste por si acaso hereda del body */
 }
 
 /* --- Sección de Botón RSVP y Animación --- */
@@ -382,7 +418,7 @@ body {
     text-decoration: none;
     border-radius: 10px;
     font-weight: bold;
-    font-size: 1.3em;
+    font-size: 1.3em; /* Mantiene su tamaño original */
     border: 3px solid #1A2E3B;
     box-shadow: 7px 7px 15px rgba(0,0,0,0.3);
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
@@ -397,7 +433,7 @@ body {
     box-shadow: 10px 10px 20px rgba(0,0,0,0.4);
 }
 
-/* Estilos para el botón de Ubicación (ahora dentro de .event-details) */
+/* Estilos para el botón de Ubicación (ahora dentro de .details-section) */
 .location-button {
     display: inline-flex;
     align-items: center;
@@ -408,7 +444,7 @@ body {
     text-decoration: none;
     border-radius: 10px;
     font-weight: bold;
-    font-size: 1.3em;
+    font-size: 1.3em; /* Mantiene su tamaño original */
     border: 3px solid #1A2E3B;
     box-shadow: 7px 7px 15px rgba(0,0,0,0.3);
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
@@ -435,7 +471,7 @@ body {
     padding-top: 25px;
     border-top: 1px dashed #A6D0E7;
     color: #555;
-    font-size: 1em;
+    font-size: 1.5em; /* Aumenta el tamaño del texto en un 150% */
     font-family: 'Cormorant Garamond', serif;
     text-align: center;
     opacity: 0;
@@ -485,15 +521,25 @@ body {
     font-style: italic;
 }
 
-/* --- Estilos para el marco --- */
+/* --- Estilos para el marco (aplicable a varios elementos) --- */
 .enmarcado {
     border: 2px solid #C19A6B; /* Color del marco (oro/bronce) */
-    padding: 5px 10px; /* Espacio dentro del marco */
     border-radius: 5px; /* Bordes ligeramente redondeados */
-    display: inline-block; /* Para que el marco se ajuste al contenido */
     background-color: #F5EFE1; /* Fondo del marco (crema/beige) */
-    margin: 5px; /* Espacio alrededor del marco */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 10px auto; /* Centrar y dar espacio */
+    padding: 10px 20px; /* Espacio interno del marco */
+    display: block; /* Por defecto, para ocupar su propio espacio */
+    max-width: fit-content; /* Se ajusta al contenido */
 }
+
+/* Ajustes específicos para el enmarcado de la madrina */
+.godparent-info.enmarcado {
+    display: inline-block; /* Mantenerlo en línea con el texto "Y mi Madrina:" */
+    margin: 5px; /* Pequeño margen para separarlo del texto adyacente */
+    padding: 5px 10px;
+}
+
 
 /* --- Media Queries (Responsividad) --- */
 @media (max-width: 768px) {
@@ -518,18 +564,23 @@ body {
     .signature-name {
         font-size: 2.5em;
     }
-    .parents-names {
-        font-size: 1.4em;
+    /* El texto general se ajusta por el 1.5em de cada clase, pero aquí reducimos el base */
+    .content-text-block p,
+    .details-section p,
+    .agenda-list li,
+    .location-address,
+    .additional-info {
+        font-size: 1.2em; /* Reducido para pantallas más pequeñas, pero sigue siendo relativo */
     }
-    .godparent-info {
-        font-size: 1.2em;
+    .parents-names, .godparent-info, .chambelanes-section p {
+        font-size: 1.1em; /* Ajuste específico para estos nombres */
     }
-    .chambelanes-nombres span.enmarcado {
-        display: inline-block; /* Pueden estar en la misma línea en pantallas más grandes */
-        margin: 5px;
+
+    .chambelanes-section h2, .details-section h2, .agenda-section h2, .countdown-section h2 {
+        font-size: 1.6em; /* Mantiene su tamaño relativo */
     }
     .invitation-phrase {
-        font-size: 1.5em;
+        font-size: 1.5em; /* Mantiene su tamaño relativo */
     }
     /* Contador */
     .countdown-unit {
@@ -567,10 +618,6 @@ body {
         padding: 15px 25px;
         font-size: 1.1em;
     }
-
-    .location-address {
-        font-size: 1em;
-    }
 }
 
 @media (max-width: 480px) {
@@ -595,18 +642,23 @@ body {
     .signature-name {
         font-size: 1.8em;
     }
-    .parents-names {
-        font-size: 1.2em;
+    /* El texto general se ajusta por el 1.5em de cada clase, pero aquí reducimos el base */
+    .content-text-block p,
+    .details-section p,
+    .agenda-list li,
+    .location-address,
+    .additional-info {
+        font-size: 1em; /* Reducido aún más para pantallas muy pequeñas */
     }
-    .godparent-info {
-        font-size: 1.1em;
+    .parents-names, .godparent-info, .chambelanes-section p {
+        font-size: 0.9em; /* Ajuste específico para estos nombres */
     }
-    .chambelanes-nombres span.enmarcado {
-        display: block; /* Asegurar que estén en líneas separadas en móviles */
-        margin: 5px auto;
+
+    .chambelanes-section h2, .details-section h2, .agenda-section h2, .countdown-section h2 {
+        font-size: 1.4em; /* Mantiene su tamaño relativo */
     }
     .invitation-phrase {
-        font-size: 1.3em;
+        font-size: 1.3em; /* Mantiene su tamaño relativo */
     }
     /* Contador */
     .countdown-unit {
@@ -635,9 +687,6 @@ body {
     }
     .location-button {
         padding: 10px 20px;
-        font-size: 0.9em;
-    }
-    .location-address {
         font-size: 0.9em;
     }
 
