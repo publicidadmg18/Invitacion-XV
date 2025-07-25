@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function() {
     const countdownElement = document.getElementById('countdown');
 
-    // Reemplaza esta fecha con la fecha y hora exacta de tu evento
+    // ¡IMPORTANTE! Reemplaza esta fecha con la fecha y hora exacta de tu evento.
     // Formato: 'Mes Día, Año HH:MM:SS'
-    // Ejemplo: 'October 27, 2025 18:00:00' (27 de octubre de 2025 a las 6 PM)
-    const eventDate = new Date('October 27, 2025 18:00:00');
+    // Ejemplo: 'September 20, 2025 18:00:00' (20 de septiembre de 2025 a las 6 PM)
+    const eventDate = new Date('September 20, 2025 18:00:00'); // <--- FECHA CORREGIDA AQUÍ
 
     function updateCountdown() {
         const now = new Date();
@@ -18,12 +18,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
         const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-        // Si quisieras segundos, descomenta la línea de abajo y agrégalos al HTML
+        // Si quisieras segundos, puedes descomentar la línea de abajo y agregarlos al HTML
         // const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
 
+        // Función para formatear números con un cero inicial si son menores a 10
         const formatNumber = (num) => num < 10 ? '0' + num : num;
 
-        // Construimos el nuevo HTML con recuadros individuales
+        // Construimos el nuevo HTML con recuadros individuales para cada unidad de tiempo
         let countdownHtml = `
             <div class="countdown-unit">
                 <span class="countdown-number">${formatNumber(days)}</span>
@@ -38,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <span class="countdown-label">Minutos</span>
             </div>
         `;
-        // Si incluyes segundos, añade:
+        // Si decides incluir segundos, puedes añadir este bloque:
         /*
         <div class="countdown-unit">
             <span class="countdown-number">${formatNumber(seconds)}</span>
@@ -49,8 +50,8 @@ document.addEventListener('DOMContentLoaded', function() {
         countdownElement.innerHTML = countdownHtml;
     }
 
-    // Actualiza el contador cada segundo
+    // Actualiza el contador cada segundo (1000 milisegundos)
     setInterval(updateCountdown, 1000);
-    // Ejecuta la función una vez al cargar para evitar el retraso inicial
+    // Ejecuta la función una vez al cargar la página para evitar un retraso inicial
     updateCountdown(); 
 });
