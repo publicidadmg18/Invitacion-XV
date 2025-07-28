@@ -3,50 +3,55 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ¡IMPORTANTE! Fecha y hora exacta de tu evento (recepción a las 19:30).
     // El contador llegará a cero en esta fecha y hora.
-    const eventDate = new Date('September 20, 2025 19:30:00'); // <--- Contador hasta la Recepción
+    const eventDate = new Date('September 20, 2025 19:30:00').getTime(); // <--- Contador hasta la Recepción
 
     function updateCountdown() {
-        const now = new Date();
-        const timeDiff = eventDate.getTime() - now.getTime();
+        const now = new Date().getTime(); // Obtener el tiempo en milisegundos para comparación
+        const distance = eventDate - now;
 
-        if (timeDiff <= 0) {
-            countdownElement.innerHTML = "¡Es hoy! ¡A celebrar!";
+        // Función para formatear números con un cero inicial si son menores a 10
+        const formatNumber = (num) => String(num).padStart(2, '0');
+
+        // Si el contador ha terminado
+        if (distance < 0) {
+            countdownElement.innerHTML = "<div class='countdown-finished'>¡Es hoy! ¡A celebrar!</div>";
+            clearInterval(countdownInterval); // Detener el intervalo cuando termina
             return;
         }
 
-        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000); // Segundos incluidos
+        // Calcular días, horas, minutos, segundos
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Función para formatear números con un cero inicial si son menores a 10
-        const formatNumber = (num) => num < 10 ? '0' + num : num;
-
-        // Construimos el HTML con recuadros individuales para cada unidad de tiempo
-        let countdownHtml = `
-            <div class="countdown-unit">
+        // Construir el HTML para el contador con números y etiquetas en la misma línea
+        // y con los dos puntos entre cada unidad.
+        countdownElement.innerHTML = `
+            <span class="countdown-item">
                 <span class="countdown-number">${formatNumber(days)}</span>
-                <span class="countdown-label">Días</span>
-            </div>
-            <div class="countdown-unit">
+                <span class="countdown-label">DÍAS</span>
+            </span>
+            <span class="countdown-separator">:</span>
+            <span class="countdown-item">
                 <span class="countdown-number">${formatNumber(hours)}</span>
-                <span class="countdown-label">Horas</span>
-            </div>
-            <div class="countdown-unit">
+                <span class="countdown-label">HRS</span>
+            </span>
+            <span class="countdown-separator">:</span>
+            <span class="countdown-item">
                 <span class="countdown-number">${formatNumber(minutes)}</span>
-                <span class="countdown-label">Minutos</span>
-            </div>
-            <div class="countdown-unit">
+                <span class="countdown-label">MIN</span>
+            </span>
+            <span class="countdown-separator">:</span>
+            <span class="countdown-item">
                 <span class="countdown-number">${formatNumber(seconds)}</span>
-                <span class="countdown-label">Segundos</span>
-            </div>
+                <span class="countdown-label">SEG</span>
+            </span>
         `;
-
-        countdownElement.innerHTML = countdownHtml;
     }
 
     // Actualiza el contador cada segundo (1000 milisegundos)
-    setInterval(updateCountdown, 1000);
+    const countdownInterval = setInterval(updateCountdown, 1000);
     // Ejecuta la función una vez al cargar la página para evitar un retraso inicial
-    updateCountdown(); 
+    updateCountdown();
 });
