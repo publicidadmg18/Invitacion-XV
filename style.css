@@ -665,20 +665,20 @@ body {
     }
     .countdown-number {
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
-        font-size: 2.8em; /* REDUCIDO LIGERAMENTE DE 3.0em a 2.8em */
+        font-size: 2.5em; /* Ligeramente reducido de 2.8em */
     }
     .countdown-label {
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
-        font-size: 0.9em; /* Ajuste para tabletas*/
+        font-size: 0.85em; /* Ligeramente reducido de 0.9em */
     }
     .countdown-separator { /* Ajuste de tamaño para tabletas */
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
-        font-size: 2.8em; /* REDUCIDO LIGERAMENTE DE 3.0em a 2.8em */
-        padding-bottom: 3px; /* AJUSTADO EL PADDING INFERIOR PARA ALINEACIÓN */
+        font-size: 2.5em; /* Ligeramente reducido de 2.8em */
+        padding-bottom: 2px; /* AJUSTADO EL PADDING INFERIOR PARA ALINEACIÓN */
     }
 
     .countdown-timer {
-        gap: 10px; /* REDUCIDO EL ESPACIO LIGERAMENTE DE 12px a 10px ya que la fuente es más pequeña */
+        gap: 8px; /* REDUCIDO EL ESPACIO LIGERAMENTE de 10px */
         margin: 0 5px; /* Ajuste para dar más espacio horizontal */
     }
 
@@ -771,24 +771,24 @@ body {
     }
     /* Contador */
     .countdown-section h2 { /* Ajuste de tamaño para móviles */
-        font-size: 1.4em;
+        font-size: 1.2em;
     }
     .countdown-number {
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
-        font-size: 2.0em; /* REDUCIDO LIGERAMENTE DE 2.2em a 2.0em */
+        font-size: 1.8em; /* REDUCIDO A 1.8em desde 2.0em */
     }
     .countdown-label {
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
-        font-size: 0.8em; /* Ajuste para móviles */
+        font-size: 0.7em; /* Ajuste para móviles */
     }
     .countdown-separator { /* Ajuste de tamaño para móviles */
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
-        font-size: 2.0em; /* REDUCIDO LIGERAMENTE DE 2.2em a 2.0em */
-        padding-bottom: 2px; /* AJUSTADO EL PADDING INFERIOR PARA ALINEACIÓN */
+        font-size: 1.8em; /* REDUCIDO A 1.8em desde 2.0em */
+        padding-bottom: 1px; /* AJUSTADO EL PADDING INFERIOR PARA ALINEACIÓN */
     }
     .countdown-timer {
-        gap: 6px; /* REDUCIDO EL ESPACIO LIGERAMENTE DE 8px a 6px */
-        margin: 0 5px; /* Ajuste para dar más espacio horizontal */
+        gap: 4px; /* REDUCIDO EL ESPACIO LIGERAMENTE DE 6px a 4px */
+        margin: 0 2px; /* Ajuste para dar más espacio horizontal */
     }
     /* Botones y dirección en smartphones */
     .rsvp-section {
