@@ -16,7 +16,7 @@
     margin-bottom: 20px !important; /* Espacio debajo del contador */
     box-shadow: none !important; /* Eliminar cualquier sombra */
     position: relative;
-    overflow: hidden;
+    overflow: hidden; /* Mantener overflow hidden aquí para animaciones */
     text-align: center;
     opacity: 0;
     animation: fadeInSlideUp 1.1s ease-out forwards;
@@ -37,13 +37,15 @@
 .countdown-timer {
     display: flex; /* Para que todos los elementos se alineen horizontalmente */
     justify-content: center; /* Centrar el contador */
-    align-items: flex-end; /* Alinear la parte inferior de números y etiquetas */
+    align-items: baseline; /* <--- CAMBIO CLAVE: Alinear las líneas de base del texto */
     padding: 0; /* Eliminar cualquier padding */
-    gap: 15px; /* <-- AUMENTADO EL ESPACIO ENTRE ELEMENTOS (de 10px a 15px) */
+    gap: 15px; /* Espacio entre cada unidad (ej. "15 DÍAS", "10 HRS") */
     background-color: transparent; /* Asegurarse de que no tenga fondo */
     border: none; /* Asegurarse de que no tenga borde */
     border-radius: 0; /* Asegurarse de que no tenga radio de borde */
     flex-wrap: nowrap; /* IMP: Evita que los elementos salten a la siguiente línea */
+    /* Añadir un poco de margen horizontal para prevenir recorte si es el caso */
+    margin: 0 10px; /* <--- Añadido para dar más espacio horizontal general */
 }
 
 /* Estilos para cada grupo de Número y Etiqueta (ej. "15 DÍAS") */
@@ -64,7 +66,7 @@
     font-size: 4em; /* Tamaño grande como en la imagen */
     font-weight: 700; /* Negrita */
     color: #1A2E3B; /* Azul oscuro para que resalte */
-    line-height: 1; /* Ajustar el espaciado */
+    line-height: 1; /* Ajustar el espaciado para evitar espacios extra arriba/abajo */
     text-shadow: none; /* Sin sombra */
     margin-bottom: 5px; /* Espacio entre el número y la etiqueta */
 }
@@ -85,10 +87,10 @@
     font-size: 4em; /* Mismo tamaño que los números para que coincidan */
     font-weight: 700; /* Negrita como los números */
     color: #1A2E3B; /* Mismo color que los números */
-    line-height: 1; /* Asegurar alineación */
+    line-height: 1; /* <--- AJUSTE CLAVE: Asegurar la misma línea de altura que los números */
     text-shadow: none; /* Sin sombra */
     margin: 0 5px; /* Espacio a los lados de los dos puntos */
-    padding-bottom: 5px; /* Ajuste vertical para alinear con los números */
+    padding-bottom: 5px; /* <--- AJUSTE CLAVE: Ajuste vertical para alinear con los números */
 }
 
 /* --- Keyframes para la animación de aparición del texto --- */
@@ -632,7 +634,7 @@ body {
     }
     .countdown-number {
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
-        font-size: 3.0em; /* <-- Ligeramente reducido para tabletas (de 3.2em a 3.0em) */
+        font-size: 2.8em; /* <-- REDUCIDO LIGERAMENTE DE 3.0em a 2.8em */
     }
     .countdown-label {
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
@@ -640,11 +642,13 @@ body {
     }
     .countdown-separator { /* Ajuste de tamaño para tabletas */
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
-        font-size: 3.0em; /* <-- Ligeramente reducido para tabletas (de 3.2em a 3.0em) */
+        font-size: 2.8em; /* <-- REDUCIDO LIGERAMENTE DE 3.0em a 2.8em */
+        padding-bottom: 3px; /* <-- AJUSTADO EL PADDING INFERIOR PARA ALINEACIÓN */
     }
 
     .countdown-timer {
-        gap: 12px; /* <-- AUMENTADO EL ESPACIO (de 8px a 12px) */
+        gap: 10px; /* <-- REDUCIDO EL ESPACIO LIGERAMENTE DE 12px a 10px ya que la fuente es más pequeña */
+        margin: 0 5px; /* <-- Ajuste para dar más espacio horizontal */
     }
 
     /* Botones y dirección en tabletas */
@@ -731,7 +735,7 @@ body {
     }
     .countdown-number {
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
-        font-size: 2.2em; /* <-- Ligeramente reducido para móviles (de 2.5em a 2.2em) */
+        font-size: 2.0em; /* <-- REDUCIDO LIGERAMENTE DE 2.2em a 2.0em */
     }
     .countdown-label {
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
@@ -739,10 +743,12 @@ body {
     }
     .countdown-separator { /* Ajuste de tamaño para móviles */
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
-        font-size: 2.2em; /* <-- Ligeramente reducido para móviles (de 2.5em a 2.2em) */
+        font-size: 2.0em; /* <-- REDUCIDO LIGERAMENTE DE 2.2em a 2.0em */
+        padding-bottom: 2px; /* <-- AJUSTADO EL PADDING INFERIOR PARA ALINEACIÓN */
     }
     .countdown-timer {
-        gap: 8px; /* <-- AUMENTADO EL ESPACIO (de 5px a 8px) */
+        gap: 6px; /* <-- REDUCIDO EL ESPACIO LIGERAMENTE DE 8px a 6px */
+        margin: 0 5px; /* <-- Ajuste para dar más espacio horizontal */
     }
     /* Botones y dirección en smartphones */
     .rsvp-section {
