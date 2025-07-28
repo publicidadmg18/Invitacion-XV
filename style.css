@@ -175,7 +175,8 @@ body {
     border: none;
     box-shadow: none;
     background: transparent;
-    padding: 20px 160px;
+    /* REDUCIMOS EL PADDING HORIZONTAL POR DEFECTO PARA QUE QUEDE MÁS ESPACIO */
+    padding: 20px 100px; /* Reducido de 160px */
     position: relative;
     z-index: 2;
     border-radius: 5px;
@@ -604,13 +605,15 @@ body {
         padding: 0;
     }
 
+    /* REDUCIMOS MÁS LOS BORDES DECORATIVOS EN TABLETAS */
     .invitation-container::before,
     .invitation-container::after {
-        width: 60px;
+        width: 40px; /* Reducido de 60px */
     }
 
+    /* REDUCIMOS EL PADDING HORIZONTAL DEL CONTENIDO INTERNO EN TABLETAS */
     .inner-frame {
-        padding: 15px 100px;
+        padding: 15px 70px; /* Reducido de 100px */
     }
     .decorative-title {
         font-size: 2.4em; /* Ajuste para tabletas */
@@ -661,25 +664,25 @@ body {
     }
     /* Contador */
     .countdown-section h2 { /* Ajuste de tamaño para tabletas */
-        font-size: 1.6em;
+        font-size: 1.5em; /* Ligeramente más pequeño */
     }
     .countdown-number {
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
-        font-size: 2.5em; /* Ligeramente reducido de 2.8em */
+        font-size: 2.3em; /* Más reducido para tabletas */
     }
     .countdown-label {
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
-        font-size: 0.85em; /* Ligeramente reducido de 0.9em */
+        font-size: 0.8em; /* Más reducido */
     }
     .countdown-separator { /* Ajuste de tamaño para tabletas */
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
-        font-size: 2.5em; /* Ligeramente reducido de 2.8em */
+        font-size: 2.3em; /* Más reducido */
         padding-bottom: 2px; /* AJUSTADO EL PADDING INFERIOR PARA ALINEACIÓN */
     }
 
     .countdown-timer {
-        gap: 8px; /* REDUCIDO EL ESPACIO LIGERAMENTE de 10px */
-        margin: 0 5px; /* Ajuste para dar más espacio horizontal */
+        gap: 6px; /* REDUCIDO EL ESPACIO AÚN MÁS */
+        margin: 0 2px; /* Ajuste para dar más espacio horizontal */
     }
 
     /* Botones y dirección en tabletas */
@@ -712,83 +715,85 @@ body {
         padding: 0;
     }
 
+    /* REDUCIMOS MÁS LOS BORDES DECORATIVOS EN MÓVILES */
     .invitation-container::before,
     .invitation-container::after {
-        width: 40px;
+        width: 30px; /* Reducido de 40px */
     }
 
+    /* REDUCIMOS EL PADDING HORIZONTAL DEL CONTENIDO INTERNO EN MÓVILES */
     .inner-frame {
-        padding: 10px 60px;
+        padding: 10px 40px; /* Reducido de 60px */
     }
     .decorative-title {
-        font-size: 2.0em; /* Ajuste para móviles */
+        font-size: 1.8em; /* Ajuste para móviles */
     }
     .signature-name {
-        font-size: 2.8em; /* Ajuste para móviles */
+        font-size: 2.5em; /* Ajuste para móviles */
     }
     /* NUEVO: Ajuste para la imagen de Andrea en móviles */
     .andrea-profile-pic {
-        width: 100px;
-        height: 100px;
+        width: 90px;
+        height: 90px;
         margin: 10px auto 15px auto;
     }
 
     /* Nuevos tamaños para textos destacados en móviles */
     .header-slogan {
-        font-size: 1.5em;
+        font-size: 1.3em;
     }
     .parents-intro-text {
-        font-size: 1.2em;
+        font-size: 1.1em;
     }
     .madrina-intro-text {
-        font-size: 1.1em;
+        font-size: 1.0em;
     }
     /* El texto general se ajusta por el 1.5em de cada clase, pero aquí reducimos el base */
     .content-text-block p,
     .details-section p,
     .location-address,
     .additional-info {
-        font-size: 1em; /* Reducido aún más para pantallas muy pequeñas */
+        font-size: 0.9em; /* Reducido aún más para pantallas muy pequeñas */
     }
     .parents-names, .godparent-info {
-        font-size: 0.9em; /* Ajuste específico para estos nombres */
+        font-size: 0.8em; /* Ajuste específico para estos nombres */
     }
     /* Chambelanes */
     .chambelanes-section p {
-        font-size: 0.9em; /* Asegura el tamaño para móvil */
+        font-size: 0.85em; /* Asegura el tamaño para móvil */
     }
     .placeholder-chambelan {
         font-style: italic;
         opacity: 0.7;
-        font-size: 0.8em;
+        font-size: 0.75em;
     }
 
     .chambelanes-section h2, .details-section h2, .agenda-section h2 {
-        font-size: 1.4em; /* Mantiene su tamaño relativo */
+        font-size: 1.2em; /* Mantiene su tamaño relativo */
     }
     .invitation-phrase {
-        font-size: 1.3em; /* Mantiene su tamaño relativo */
+        font-size: 1.1em; /* Mantiene su tamaño relativo */
     }
     /* Contador */
     .countdown-section h2 { /* Ajuste de tamaño para móviles */
-        font-size: 1.2em;
+        font-size: 1.1em; /* Reducido */
     }
     .countdown-number {
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
-        font-size: 1.8em; /* REDUCIDO A 1.8em desde 2.0em */
+        font-size: 1.6em; /* Más reducido aún */
     }
     .countdown-label {
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
-        font-size: 0.7em; /* Ajuste para móviles */
+        font-size: 0.65em; /* Más reducido */
     }
     .countdown-separator { /* Ajuste de tamaño para móviles */
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
-        font-size: 1.8em; /* REDUCIDO A 1.8em desde 2.0em */
-        padding-bottom: 1px; /* AJUSTADO EL PADDING INFERIOR PARA ALINEACIÓN */
+        font-size: 1.6em; /* Más reducido aún */
+        padding-bottom: 0px; /* AJUSTADO EL PADDING INFERIOR PARA ALINEACIÓN */
     }
     .countdown-timer {
-        gap: 4px; /* REDUCIDO EL ESPACIO LIGERAMENTE DE 6px a 4px */
-        margin: 0 2px; /* Ajuste para dar más espacio horizontal */
+        gap: 2px; /* REDUCIDO EL ESPACIO AÚN MÁS */
+        margin: 0; /* Elimina márgenes extra */
     }
     /* Botones y dirección en smartphones */
     .rsvp-section {
