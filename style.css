@@ -317,23 +317,6 @@ body {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
-/* Como ahora usas una imagen, estos estilos de lista ya no serían relevantes a menos que decidas volver a usar una lista */
-/* .agenda-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 auto;
-    max-width: 350px;
-    text-align: left;
-}
-
-.agenda-list li {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #1A2E3B;
-    font-weight: 500;
-} */
-
-
 /* --- Contenedor para la dirección y el botón de mapa --- */
 .location-map-block {
     margin-top: 25px;
@@ -377,54 +360,62 @@ body {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
-/* Estilos para el contenedor de los números y etiquetas (AHORA ASÍ PARA EL NUEVO ESTILO) */
+/* Estilos para el contenedor principal de los números y etiquetas */
 .countdown-timer {
-    display: flex; /* Para que las unidades (DÍAS, HORAS, etc.) se alineen horizontalmente */
-    justify-content: center; /* Centra las unidades */
-    align-items: flex-start; /* Alinea las unidades al inicio para evitar que se desalineen si tienen diferentes alturas */
+    display: flex; /* Para que todos los 'countdown-item' y separadores se alineen horizontalmente */
+    justify-content: center; /* Centra los items */
+    align-items: center; /* Alinea verticalmente los items y separadores */
     padding: 10px 0;
-    gap: 15px; /* Espacio entre cada unidad (Días, Horas, etc.) */
-    flex-wrap: wrap; /* Permite que las unidades salten a la siguiente línea en pantallas pequeñas */
+    gap: 5px; /* Espacio más pequeño entre cada unidad y los dos puntos, ajusta si es necesario */
+    flex-wrap: wrap; /* Permite que los items salten a la siguiente línea en pantallas pequeñas */
     background-color: transparent; /* Asegurarse de que no tenga fondo por si acaso */
     border: none; /* Asegurarse de que no tenga borde */
     border-radius: 0; /* Asegurarse de que no tenga radio de borde */
 }
 
-/* Desactivar los estilos individuales de .countdown-unit para quitar los recuadros */
-.countdown-unit {
+/* Estilos para cada grupo de Número y Etiqueta (ej. "15 DÍAS") */
+.countdown-item {
+    display: flex; /* Para que el número y la etiqueta estén en la misma línea */
+    align-items: baseline; /* Alinea la base del texto */
+    gap: 5px; /* Espacio entre el número y la etiqueta */
     background-color: transparent; /* Quitar el fondo individual*/
     border: none; /* Quitar el borde individual*/
-    border-radius: 0; /* Quitar el radio del borde individual*/
     padding: 0; /* Quitar el padding individual*/
-    min-width: unset; /* Permitir que el ancho sea el natural del contenido*/
     box-shadow: none; /* Quitar la sombra individual*/
-    display: flex; /* Mantener flex para alinear número y etiqueta*/
-    flex-direction: column; /* Asegurar que el número esté encima de la etiqueta*/
-    align-items: center; /* Centrar número y etiqueta uno sobre el otro*/
-    justify-content: center;
-    /* margin: 0 10px; Este margen se maneja mejor con gap en .countdown-timer */
 }
 
-/* Los números grandes del contador (AJUSTADO PARA EL NUEVO ESTILO) */
+/* Los números grandes del contador (AJUSTADO PARA EL NUEVO ESTILO Y TIPOGRAFÍA SENCILLA) */
 .countdown-number {
-    font-family: 'Cinzel Decorative', cursive;
-    font-size: 3.5em; /* <--- AUMENTADO el tamaño para que se parezca a la imagen*/
-    font-weight: 700;
-    color: #3D6B8C; /* <--- CAMBIADO el color a un azul más oscuro de tu paleta, como en la imagen*/
-    line-height: 1.2; /* Ajustar el espaciado entre números y etiquetas*/
-    margin-bottom: 0px; /* Eliminar el margen inferior para acercar la etiqueta*/
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    font-family: 'Cormorant Garamond', serif; /* Tipografía sencilla */
+    font-size: 3.5em; /* Tamaño grande */
+    font-weight: 700; /* Negrita */
+    color: #1A2E3B; /* Azul oscuro para que resalte */
+    line-height: 1; /* Ajustar el espaciado */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Sombra sutil */
 }
 
-/* Las etiquetas (DÍAS, HORAS, etc.) (AJUSTADO PARA EL NUEVO ESTILO) */
+/* Las etiquetas (DÍAS, HORAS, etc.) (AJUSTADO PARA EL NUEVO ESTILO Y TIPOGRAFÍA SENCILLA) */
 .countdown-label {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.2em; /* <--- AUMENTADO el tamaño para que se parezca a la imagen*/
-    color: #1A2E3B; /* <--- Color de texto oscuro de tu paleta*/
+    font-family: 'Cormorant Garamond', serif; /* Tipografía sencilla */
+    font-size: 1.2em; /* Tamaño de etiqueta */
+    color: #3D6B8C; /* Un azul medio para que se vea claro pero no tanto como el número */
     text-transform: uppercase;
-    font-weight: 600;
-    margin-top: 5px; /* Pequeño margen superior para separar de los números*/
+    font-weight: 500; /* Menos negrita que el número */
+    margin-top: 0; /* Sin margen superior, ya que están en la misma línea */
+    margin-left: 0; /* Asegurar que no haya margen izquierdo si se usó antes */
 }
+
+/* NUEVO: Estilos para los dos puntos separadores */
+.countdown-separator {
+    font-family: 'Cormorant Garamond', serif; /* Misma tipografía para consistencia */
+    font-size: 3.5em; /* Mismo tamaño que los números para que coincidan */
+    font-weight: 700; /* Negrita como los números */
+    color: #1A2E3B; /* Mismo color que los números */
+    line-height: 1; /* Asegurar alineación */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Sombra sutil */
+    /* margin: 0 5px; Si necesitas más espacio alrededor de los dos puntos */
+}
+
 
 /* --- Sección de Botón RSVP y Animación --- */
 .rsvp-section {
@@ -612,7 +603,6 @@ body {
     /* El texto general se ajusta por el 1.5em de cada clase, pero aquí reducimos el base */
     .content-text-block p,
     .details-section p,
-    /* .agenda-list li, */ /* Este ya no se usa con la imagen */
     .location-address,
     .additional-info {
         font-size: 1.2em; /* Reducido para pantallas más pequeñas, pero sigue siendo relativo */
@@ -635,19 +625,18 @@ body {
         font-size: 1.5em; /* Mantiene su tamaño relativo */
     }
     /* Contador */
-    .countdown-unit {
-        padding: 0; /* Eliminado el padding de la unidad*/
-        min-width: unset; /* Reiniciado el min-width*/
-    }
     .countdown-number {
-        font-size: 2.8em; /* Ajuste para tabletas, similar a la imagen*/
+        font-size: 2.8em; /* Ajuste para tabletas */
     }
     .countdown-label {
         font-size: 1.0em; /* Ajuste para tabletas*/
     }
+    .countdown-separator { /* Ajuste de tamaño para tabletas */
+        font-size: 2.8em;
+    }
 
     .countdown-timer {
-        gap: 12px;
+        gap: 10px; /* Ajuste de gap para tabletas, podría necesitar más si los dos puntos se ven muy pegados */
     }
 
     /* Botones y dirección en tabletas */
@@ -707,7 +696,6 @@ body {
     /* El texto general se ajusta por el 1.5em de cada clase, pero aquí reducimos el base */
     .content-text-block p,
     .details-section p,
-    /* .agenda-list li, */ /* Este ya no se usa con la imagen */
     .location-address,
     .additional-info {
         font-size: 1em; /* Reducido aún más para pantallas muy pequeñas */
@@ -730,18 +718,17 @@ body {
         font-size: 1.3em; /* Mantiene su tamaño relativo */
     }
     /* Contador */
-    .countdown-unit {
-        padding: 0; /* Eliminado el padding de la unidad*/
-        min-width: unset; /* Reiniciado el min-width*/
-    }
     .countdown-number {
-        font-size: 2.2em; /* Ajuste para móviles, similar a la imagen*/
+        font-size: 2.2em; /* Ajuste para móviles */
     }
     .countdown-label {
-        font-size: 0.9em; /* Ajuste para móviles*/
+        font-size: 0.9em; /* Ajuste para móviles */
+    }
+    .countdown-separator { /* Ajuste de tamaño para móviles */
+        font-size: 2.2em;
     }
     .countdown-timer {
-        gap: 8px;
+        gap: 5px; /* Ajuste de gap para móviles */
     }
     /* Botones y dirección en smartphones */
     .rsvp-section {
