@@ -395,12 +395,12 @@ body {
 
 /* --- SECCIÓN ACTUALIZADA: Agenda del Evento --- */
 .agenda-section {
-    background-color: #EAF2F8;
-    border: 1px solid #A6D0E7;
-    border-radius: 8px;
-    padding: 20px;
+    background-color: transparent; /* CAMBIADO: Hacer el fondo transparente */
+    border: none; /* CAMBIADO: Eliminar el borde */
+    border-radius: 0; /* CAMBIADO: Eliminar el radio del borde */
+    padding: 0; /* CAMBIADO: Eliminar el padding */
     margin-bottom: 30px;
-    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    box-shadow: none; /* CAMBIADO: Eliminar la sombra */
     text-align: center;
     opacity: 0;
     animation: fadeInSlideUp 1.1s ease-out forwards;
