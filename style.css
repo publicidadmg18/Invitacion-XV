@@ -24,7 +24,7 @@
 }
 
 .countdown-section h2 { /* Estilo para "FALTAN SOLO" */
-    font-family: 'Cormorant Garamond', serif; /* Tipografía como en la imagen */
+    font-family: 'Century Gothic', bold; /* Tipografía como en la imagen */
     font-size: 2em; /* Tamaño grande */
     color: #1A2E3B;
     margin-top: 0;
@@ -61,7 +61,7 @@
 
 /* Los números grandes del contador */
 .countdown-number {
-    font-family: 'Cormorant Garamond', serif; /* Tipografía sencilla */
+    font-family: 'Century Gothic', bold; /* Tipografía sencilla */
     font-size: 4em; /* Tamaño grande como en la imagen */
     font-weight: bold; /* Negrita */
     color: #1A2E3B; /* Azul oscuro para que resalte */
@@ -72,7 +72,7 @@
 
 /* Las etiquetas (DÍAS, HORAS, etc.) */
 .countdown-label {
-    font-family: 'Cormorant Garamond', serif; /* Tipografía sencilla */
+    font-family: 'Century Gothic', bold; /* Tipografía sencilla */
     font-size: 1em; /* Tamaño de etiqueta más pequeño */
     color: #3D6B8C; /* Un azul medio para que se vea claro pero no tanto como el número */
     text-transform: uppercase;
@@ -82,7 +82,7 @@
 
 /* Estilos para los dos puntos separadores */
 .countdown-separator {
-    font-family: 'Cormorant Garamond', serif; /* Misma tipografía para consistencia */
+    font-family: 'Century Gothic', bold; /* Misma tipografía para consistencia */
     font-size: 4em; /* Mismo tamaño que los números para que coincidan */
     font-weight: bold; /* Negrita como los números */
     color: #1A2E3B; /* Mismo color que los números */
