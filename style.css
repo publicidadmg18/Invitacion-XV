@@ -127,42 +127,62 @@ body {
 
 /* --- Contenedor Principal de la Invitación --- */
 .invitation-container {
-    background-color: rgba(245, 239, 225, 0.9); /* Fondo crema/beige semi-transparente para el contenido */
-    /* *** NUEVOS ESTILOS PARA LA IMAGEN DE MARCO COMPLETA *** */
-    background-image: url('images/Marco_Rectangular.png'); /* ¡Ruta a tu nueva imagen de marco! */
-    background-size: 100% 100%; /* Escala la imagen para cubrir el contenedor */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-position: center; /* Centra la imagen de fondo */
-    border: none; /* Quitamos cualquier borde sólido */
-    padding: 0; /* Quitamos el padding del contenedor principal */
-    /* ******************************************* */
-
-    max-width: 680px; /* Ancho máximo para pantallas grandes */
+    background-color: rgba(245, 239, 225, 0.9);
+    background-image: none;
+    border: none;
+    padding: 0;
+    max-width: 680px;
     width: 100%;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     position: relative;
-    overflow: hidden; /* Importante para que el contenido no se salga del marco si hay ajustes */
+    overflow: auto;
     border-radius: 5px;
     margin-bottom: 20px;
     text-align: center;
-    min-height: 500px; /* Ajusta según la altura de tu contenido si es necesario */
-    box-sizing: border-box;
+    min-height: 500px;
+}
+
+/* --- Pseudo-elementos para los bordes repetitivos --- */
+.invitation-container::before,
+.invitation-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background-repeat: repeat-y;
+    background-size: 100% auto;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Borde Izquierdo */
+.invitation-container::before {
+    left: 0;
+    width: 80px;
+    background-image: url('images/Marco_Vertical_Dorado.png');
+}
+
+/* Borde Derecho */
+.invitation-container::after {
+    right: 0;
+    width: 80px;
+    background-image: url('images/Marco_Vertical_Dorado.png');
+    transform: scaleX(-1);
 }
 
 /* --- Marco Interior (contenedor del contenido) --- */
 .inner-frame {
     border: none;
     box-shadow: none;
-    background: transparent; /* Fondo transparente para que se vea el fondo del .invitation-container */
-    /* AJUSTA ESTE PADDING PARA QUE EL CONTENIDO QUEDE DENTRO DE TU IMAGEN DE MARCO */
-    /* Estos valores son un punto de partida, ajústalos según el diseño de tu Marco_Rectangular.png */
-    padding: 80px 100px; /* Ejemplo: padding superior/inferior 80px, lateral 100px */
+    background: transparent;
+    /* REDUCIMOS EL PADDING HORIZONTAL POR DEFECTO PARA QUE QUEDE MÁS ESPACIO */
+    padding: 20px 100px; /* Reducido de 160px */
     position: relative;
-    z-index: 2; /* Asegura que el contenido esté sobre la imagen de fondo del marco */
+    z-index: 2;
     border-radius: 5px;
     box-sizing: border-box;
     width: 100%;
-    height: 100%; /* O min-height: 100% si el contenido es variable */
+    height: 100%;
 }
 
 /* --- Encabezado y Animación --- */
@@ -582,12 +602,18 @@ body {
         padding: 15px;
     }
     .invitation-container {
-        padding: 0; /* Sigue siendo 0 porque el padding está en inner-frame */
+        padding: 0;
     }
 
-    /* Marco Interior (padding) para tabletas */
+    /* REDUCIMOS MÁS LOS BORDES DECORATIVOS EN TABLETAS */
+    .invitation-container::before,
+    .invitation-container::after {
+        width: 40px; /* Reducido de 60px */
+    }
+
+    /* REDUCIMOS EL PADDING HORIZONTAL DEL CONTENIDO INTERNO EN TABLETAS */
     .inner-frame {
-        padding: 60px 70px; /* Ajusta estos valores */
+        padding: 15px 70px; /* Reducido de 100px */
     }
     .decorative-title {
         font-size: 2.4em; /* Ajuste para tabletas */
@@ -686,12 +712,18 @@ body {
         padding: 10px;
     }
     .invitation-container {
-        padding: 0; /* Sigue siendo 0 */
+        padding: 0;
     }
 
-    /* Marco Interior (padding) para móviles */
+    /* AÚN MÁS REDUCIDOS LOS BORDES DECORATIVOS EN MÓVILES MUY PEQUEÑOS */
+    .invitation-container::before,
+    .invitation-container::after {
+        width: 20px; /* Reducido a 20px */
+    }
+
+    /* AÚN MÁS REDUCIDO EL PADDING HORIZONTAL DEL CONTENIDO INTERNO EN MÓVILES */
     .inner-frame {
-        padding: 40px 30px; /* Ajusta estos valores, podrías necesitar incluso menos padding lateral */
+        padding: 10px 25px; /* Reducido a 25px */
     }
     .decorative-title {
         font-size: 1.6em; /* Ajuste para móviles */
