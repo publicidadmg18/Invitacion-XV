@@ -24,13 +24,13 @@
 }
 
 .countdown-section h2 { /* Estilo para "FALTAN SOLO" */
-    font-family: 'Century Gothic', bold; /* Tipografía como en la imagen */
+    font-family: 'Montserrat', sans-serif; /* Usa Montserrat */
     font-size: 2em; /* Tamaño grande */
     color: #1A2E3B;
     margin-top: 0;
     margin-bottom: 5px; /* Reducir margen inferior para acercar al contador */
     text-shadow: none; /* Sin sombra */
-    font-weight: normal; /* Para que coincida con la imagen */
+    font-weight: 400; /* Normal para que coincida con la imagen */
 }
 
 /* Estilos para el contenedor principal de los números y etiquetas */
@@ -56,14 +56,13 @@
     border: none; /* Quitar el borde individual*/
     padding: 0; /* Quitar el padding individual*/
     box-shadow: none; /* Quitar la sombra individual*/
-    /* min-width: 70px; */ /* Puedes ajustar esto si los números necesitan más espacio */
 }
 
 /* Los números grandes del contador */
 .countdown-number {
-    font-family: 'Century Gothic', bold; /* Tipografía sencilla */
+    font-family: 'Montserrat', sans-serif; /* Usa Montserrat */
     font-size: 4em; /* Tamaño grande como en la imagen */
-    font-weight: bold; /* Negrita */
+    font-weight: 700; /* Negrita */
     color: #1A2E3B; /* Azul oscuro para que resalte */
     line-height: 1; /* Ajustar el espaciado */
     text-shadow: none; /* Sin sombra */
@@ -72,19 +71,19 @@
 
 /* Las etiquetas (DÍAS, HORAS, etc.) */
 .countdown-label {
-    font-family: 'Century Gothic', bold; /* Tipografía sencilla */
+    font-family: 'Montserrat', sans-serif; /* Usa Montserrat */
     font-size: 1em; /* Tamaño de etiqueta más pequeño */
     color: #3D6B8C; /* Un azul medio para que se vea claro pero no tanto como el número */
     text-transform: uppercase;
-    font-weight: normal; /* Sin negrita */
+    font-weight: 400; /* Normal */
     margin-top: 0; /* Asegurar que no haya margen superior */
 }
 
 /* Estilos para los dos puntos separadores */
 .countdown-separator {
-    font-family: 'Century Gothic', bold; /* Misma tipografía para consistencia */
+    font-family: 'Montserrat', sans-serif; /* Usa Montserrat */
     font-size: 4em; /* Mismo tamaño que los números para que coincidan */
-    font-weight: bold; /* Negrita como los números */
+    font-weight: 700; /* Negrita como los números */
     color: #1A2E3B; /* Mismo color que los números */
     line-height: 1; /* Asegurar alineación */
     text-shadow: none; /* Sin sombra */
@@ -632,12 +631,15 @@ body {
         font-size: 1.6em;
     }
     .countdown-number {
+        font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
         font-size: 3.2em; /* Ajuste para tabletas */
     }
     .countdown-label {
+        font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
         font-size: 0.9em; /* Ajuste para tabletas*/
     }
     .countdown-separator { /* Ajuste de tamaño para tabletas */
+        font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
         font-size: 3.2em;
     }
 
@@ -728,12 +730,15 @@ body {
         font-size: 1.4em;
     }
     .countdown-number {
+        font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
         font-size: 2.5em; /* Ajuste para móviles */
     }
     .countdown-label {
+        font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
         font-size: 0.8em; /* Ajuste para móviles */
     }
     .countdown-separator { /* Ajuste de tamaño para móviles */
+        font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
         font-size: 2.5em;
     }
     .countdown-timer {
