@@ -1,10 +1,10 @@
 /* Paleta de Colores:
-   Azul Oscuro/Marino: #1A2E3B (Para textos principales, bordes fuertes)
-   Azul Medio: #3D6B8C (Para fondos de sección, textos secundarios, marcos)
-   Azul Claro/Cielo: #A6D0E7 (Acentos, fondos más claros, brillos)
-   Crema/Beige: #F5EFE1 (Fondo principal de la invitación)
-   Oro/Bronce: #C19A6B (Para adornos, líneas decorativas, brillo)
-   Blanco para texto claro: #FFFFFF
+    Azul Oscuro/Marino: #1A2E3B (Para textos principales, bordes fuertes)
+    Azul Medio: #3D6B8C (Para fondos de sección, textos secundarios, marcos)
+    Azul Claro/Cielo: #A6D0E7 (Acentos, fondos más claros, brillos)
+    Crema/Beige: #F5EFE1 (Fondo principal de la invitación)
+    Oro/Bronce: #C19A6B (Para adornos, líneas decorativas, brillo)
+    Blanco para texto claro: #FFFFFF
 */
 
 /* --- Keyframes para la animación de aparición del texto --- */
@@ -307,6 +307,7 @@ body {
     animation-delay: 2.7s; /* Ligeramente después de Detalles */
 }
 
+/* Para el h2 de la Agenda, si lo tienes */
 .agenda-section h2 {
     font-family: 'Cinzel Decorative', cursive;
     font-size: 2em;
@@ -316,20 +317,22 @@ body {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
-.agenda-list {
-    list-style: none; /* Quita los puntos de la lista */
+/* Como ahora usas una imagen, estos estilos de lista ya no serían relevantes a menos que decidas volver a usar una lista */
+/* .agenda-list {
+    list-style: none;
     padding: 0;
     margin: 0 auto;
-    max-width: 350px; /* Limita el ancho para centrar mejor */
-    text-align: left; /* Alinea los ítems de la lista a la izquierda */
+    max-width: 350px;
+    text-align: left;
 }
 
 .agenda-list li {
-    font-size: 1.5em; /* Aumenta el tamaño del texto en un 150% */
+    font-size: 1.5em;
     margin-bottom: 10px;
     color: #1A2E3B;
     font-weight: 500;
-}
+} */
+
 
 /* --- Contenedor para la dirección y el botón de mapa --- */
 .location-map-block {
@@ -370,52 +373,57 @@ body {
     font-size: 2em;
     color: #1A2E3B;
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 10px; /* Reducir este margen para acercar el contador, ajustado para la imagen */
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
-/* Estilos para el nuevo formato del contador */
+/* Estilos para el contenedor de los números y etiquetas (AHORA ASÍ PARA EL NUEVO ESTILO) */
 .countdown-timer {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
+    display: flex; /* Para que las unidades (DÍAS, HORAS, etc.) se alineen horizontalmente */
+    justify-content: center; /* Centra las unidades */
+    align-items: flex-start; /* Alinea las unidades al inicio para evitar que se desalineen si tienen diferentes alturas */
     padding: 10px 0;
-    background-color: transparent;
-    border: none;
-    border-radius: 0;
+    gap: 15px; /* Espacio entre cada unidad (Días, Horas, etc.) */
+    flex-wrap: wrap; /* Permite que las unidades salten a la siguiente línea en pantallas pequeñas */
+    background-color: transparent; /* Asegurarse de que no tenga fondo por si acaso */
+    border: none; /* Asegurarse de que no tenga borde */
+    border-radius: 0; /* Asegurarse de que no tenga radio de borde */
 }
 
+/* Desactivar los estilos individuales de .countdown-unit para quitar los recuadros */
 .countdown-unit {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px dashed #A6D0E7;
-    border-radius: 8px;
-    padding: 15px 20px;
-    min-width: 90px;
-    text-align: center;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color: transparent; /* Quitar el fondo individual*/
+    border: none; /* Quitar el borde individual*/
+    border-radius: 0; /* Quitar el radio del borde individual*/
+    padding: 0; /* Quitar el padding individual*/
+    min-width: unset; /* Permitir que el ancho sea el natural del contenido*/
+    box-shadow: none; /* Quitar la sombra individual*/
+    display: flex; /* Mantener flex para alinear número y etiqueta*/
+    flex-direction: column; /* Asegurar que el número esté encima de la etiqueta*/
+    align-items: center; /* Centrar número y etiqueta uno sobre el otro*/
     justify-content: center;
+    /* margin: 0 10px; Este margen se maneja mejor con gap en .countdown-timer */
 }
 
+/* Los números grandes del contador (AJUSTADO PARA EL NUEVO ESTILO) */
 .countdown-number {
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 2.5em;
+    font-size: 3.5em; /* <--- AUMENTADO el tamaño para que se parezca a la imagen*/
     font-weight: 700;
-    color: #3498DB;
-    line-height: 1;
-    margin-bottom: 5px;
+    color: #3D6B8C; /* <--- CAMBIADO el color a un azul más oscuro de tu paleta, como en la imagen*/
+    line-height: 1.2; /* Ajustar el espaciado entre números y etiquetas*/
+    margin-bottom: 0px; /* Eliminar el margen inferior para acercar la etiqueta*/
     text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 }
 
+/* Las etiquetas (DÍAS, HORAS, etc.) (AJUSTADO PARA EL NUEVO ESTILO) */
 .countdown-label {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 0.9em;
-    color: #1A2E3B;
+    font-size: 1.2em; /* <--- AUMENTADO el tamaño para que se parezca a la imagen*/
+    color: #1A2E3B; /* <--- Color de texto oscuro de tu paleta*/
     text-transform: uppercase;
     font-weight: 600;
+    margin-top: 5px; /* Pequeño margen superior para separar de los números*/
 }
 
 /* --- Sección de Botón RSVP y Animación --- */
@@ -604,7 +612,7 @@ body {
     /* El texto general se ajusta por el 1.5em de cada clase, pero aquí reducimos el base */
     .content-text-block p,
     .details-section p,
-    .agenda-list li,
+    /* .agenda-list li, */ /* Este ya no se usa con la imagen */
     .location-address,
     .additional-info {
         font-size: 1.2em; /* Reducido para pantallas más pequeñas, pero sigue siendo relativo */
@@ -628,14 +636,14 @@ body {
     }
     /* Contador */
     .countdown-unit {
-        padding: 12px 18px;
-        min-width: 80px;
+        padding: 0; /* Eliminado el padding de la unidad*/
+        min-width: unset; /* Reiniciado el min-width*/
     }
     .countdown-number {
-        font-size: 2.2em;
+        font-size: 2.8em; /* Ajuste para tabletas, similar a la imagen*/
     }
     .countdown-label {
-        font-size: 0.85em;
+        font-size: 1.0em; /* Ajuste para tabletas*/
     }
 
     .countdown-timer {
@@ -699,7 +707,7 @@ body {
     /* El texto general se ajusta por el 1.5em de cada clase, pero aquí reducimos el base */
     .content-text-block p,
     .details-section p,
-    .agenda-list li,
+    /* .agenda-list li, */ /* Este ya no se usa con la imagen */
     .location-address,
     .additional-info {
         font-size: 1em; /* Reducido aún más para pantallas muy pequeñas */
@@ -723,14 +731,14 @@ body {
     }
     /* Contador */
     .countdown-unit {
-        padding: 10px 15px;
-        min-width: 70px;
+        padding: 0; /* Eliminado el padding de la unidad*/
+        min-width: unset; /* Reiniciado el min-width*/
     }
     .countdown-number {
-        font-size: 1.8em;
+        font-size: 2.2em; /* Ajuste para móviles, similar a la imagen*/
     }
     .countdown-label {
-        font-size: 0.75em;
+        font-size: 0.9em; /* Ajuste para móviles*/
     }
     .countdown-timer {
         gap: 8px;
