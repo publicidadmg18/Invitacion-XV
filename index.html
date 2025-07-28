@@ -3,135 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mis XV Años - Andrea</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Invitación de XV Años Andrea</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="music-player-container">
-        <audio controls loop autoplay>
-            <source src="music/vals_quinceanera.mp3" type="audio/mpeg">
+
+    <section class="music-player-container">
+        <audio controls loop>
+            <source src="audio/Salvatore_Lana_Del_Rey_Lyrics.mp3" type="audio/mpeg">
             Tu navegador no soporta el elemento de audio.
         </audio>
-        <p class="music-note">Música de fondo: Vals Quinceañera</p>
-    </div>
+        <p class="music-note">Música de fondo para acompañar tu visita.</p>
+    </section>
 
     <div class="invitation-container">
         <div class="inner-frame">
-            <div class="header">
-                <p class="decorative-title">Te Invito a</p>
-                <h1 class="signature-name">Andrea</h1>
+
+            <header class="header">
+                <h1 class="decorative-title">Mis XV Años</h1>
+                <p class="signature-name">Andrea</p>
+                <img src="images/Andrea.png" alt="Imagen de Andrea" class="andrea-profile-pic">
                 <p class="header-slogan">El Sueño Comienza</p>
                 <div class="header-line"></div>
-            </div>
+            </header>
 
-            <img src="images/Andrea.jpg" alt="Foto de Andrea" class="andrea-profile-pic">
-
-            <div class="content-text-block">
+            <section class="content-text-block">
                 <p class="parents-intro-text">Con la bendición de Dios y en compañía de mis padres</p>
-                <p class="parents-names enmarcado">Juan Pérez & María García</p>
-                <p class="madrina-intro-text">Y mi Madrina:</p>
-                <p class="godparent-info enmarcado">Guadalupe Sánchez</p>
-                <p class="invitation-phrase">Te invitamos a compartir mi alegría en la celebración de mis quince años.</p>
-                <p class="rsvp-note">¡Tu presencia es muy importante para mí!</p>
-            </div>
+                <p class="parents-names enmarcado">Mónica Peralta<br>Ismael Hernández</p>
+                <p class="madrina-intro-text">Y mi Madrina:<br><span class="godparent-info enmarcado">Aida Hernández</span></p>
+            </section>
 
-            <div class="countdown-section">
-                <h2>FALTAN SOLO:</h2>
-                <div class="countdown-timer">
-                    <div class="countdown-item">
-                        <span id="days" class="countdown-number">00</span>
-                        <span class="countdown-label">DÍAS</span>
-                    </div>
-                    <span class="countdown-separator">:</span>
-                    <div class="countdown-item">
-                        <span id="hours" class="countdown-number">00</span>
-                        <span class="countdown-label">HRS</span>
-                    </div>
-                    <span class="countdown-separator">:</span>
-                    <div class="countdown-item">
-                        <span id="minutes" class="countdown-number">00</span>
-                        <span class="countdown-label">MIN</span>
-                    </div>
-                    <span class="countdown-separator">:</span>
-                    <div class="countdown-item">
-                        <span id="seconds" class="countdown-number">00</span>
-                        <span class="countdown-label">SEG</span>
-                    </div>
-                </div>
-            </div>
+            <section class="chambelanes-section">
+                <h2>Mis Chambelanes</h2>
+                <p>Saúl Alejandro Velázquez</p>
+                <p>Donovan Alberto Peralta</p>
+                <p class="placeholder-chambelan">[Nombre 3er Chambelán]</p>
+                <p class="placeholder-chambelan">[Nombre 4to Chambelán]</p>
+            </section>
 
-            <div class="details-section">
-                <h2>DETALLES DEL EVENTO</h2>
-                <p>Fecha: <strong>Sábado, 20 de Octubre de 2025</strong></p>
-                <p>Misa: <strong>18:00 hrs</strong></p>
-                <p>Recepción: <strong>20:00 hrs</strong></p>
+            <section class="content-text-block">
+                <p class="invitation-phrase">Nos complace invitarte a ser parte de este gran día.</p>
+                <p class="rsvp-note">¡Hay momentos inolvidables en la vida que se atesoran en el corazón y merecen ser compartidos!</p>
+            </section>
+
+            <section class="details-section">
+                <h2>Detalles del Evento</h2>
+                <p><strong>Fecha:</strong> Sábado, 20 de Septiembre de 2025</p>
+                <p><strong>Lugar:</strong> Salón de Eventos Guissel</p>
                 <div class="location-map-block">
-                    <p class="location-address">Salón de Eventos "El Cisne"<br>Av. Siempre Viva #123, Colonia Springfield, Ecatepec, Estado de México</p>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Av.+Siempre+Viva+123,+Colonia+Springfield,+Ecatepec,+Estado+de+M%C3%A9xico" target="_blank" class="location-button">
-                        <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <p class="location-address">Av. Central 283, Bosques de Aragón,<br>57170 Cd. Nezahualcóyotl.</p>
+                    <a href="https://g.co/kgs/Dts2bMp" target="_blank" class="location-button">
+                        <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                         </svg>
                         Ver Ubicación
                     </a>
                 </div>
-            </div>
+            </section>
 
-            <div class="agenda-section">
-                <h2>AGENDA DEL EVENTO</h2>
-                <img src="images/Itinerario.jpg" alt="Itinerario del Evento" class="itinerary-image">
-            </div>
+            <section class="agenda-section">
+              <img src="images/Itinerario.png" alt="Agenda del Evento" class="itinerary-image">
+            </section>
 
-            <div class="rsvp-section">
-                <a href="https://wa.me/525512345678?text=Hola%2C%20confirmo%20mi%20asistencia%20a%20los%20XV%20A%C3%B1os%20de%20Andrea." target="_blank" class="rsvp-button">
-                    <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 6H6v-2h8v2zm4-4H6V5h12v6z"/>
+            <section class="countdown-section">
+                <h2>FALTAN SOLO</h2>
+                <div id="countdown" class="countdown-timer">
+                    </div>
+            </section>
+
+            <section class="rsvp-section">
+                <a href="https://w.app/1zv8nx" target="_blank" class="rsvp-button">
+                    <svg class="button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
                     </svg>
                     Confirmar Asistencia
                 </a>
-            </div>
+                <p class="rsvp-note">Por favor, confirma tu asistencia antes del [Fecha Límite].</p>
+            </section>
 
-            <div class="additional-info">
-                <p>¡Te esperamos para celebrar juntos este día tan especial!</p>
-                <p>Para más información, contacta a Juan o María.</p>
-            </div>
+            <section class="additional-info">
+                <p>¡Gracias por ser parte de esta celebración tan especial!</p>
+                <p>Con cariño, <br> Andrea</p>
+            </section>
+
         </div>
     </div>
 
-    <script>
-        // Función para actualizar el contador
-        function updateCountdown() {
-            // Fecha de los XV años de Andrea: 20 de Octubre de 2025, 20:00:00 hrs
-            const eventDate = new Date("October 20, 2025 20:00:00").getTime();
-            const now = new Date().getTime();
-            const distance = eventDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Mostrar el resultado en los elementos
-            document.getElementById("days").innerHTML = String(days).padStart(2, '0');
-            document.getElementById("hours").innerHTML = String(hours).padStart(2, '0');
-            document.getElementById("minutes").innerHTML = String(minutes).padStart(2, '0');
-            document.getElementById("seconds").innerHTML = String(seconds).padStart(2, '0');
-
-            // Si la cuenta atrás ha terminado
-            if (distance < 0) {
-                clearInterval(countdownInterval);
-                document.querySelector(".countdown-timer").innerHTML = "<p>¡Es el gran día!</p>";
-                document.querySelector(".countdown-section h2").style.display = "none";
-            }
-        }
-
-        // Actualizar el contador cada segundo
-        const countdownInterval = setInterval(updateCountdown, 1000);
-
-        // Llamar a la función una vez al inicio para evitar el parpadeo de 00
-        updateCountdown();
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
