@@ -37,15 +37,14 @@
 .countdown-timer {
     display: flex; /* Para que todos los elementos se alineen horizontalmente */
     justify-content: center; /* Centrar el contador */
-    align-items: baseline; /* <--- CAMBIO CLAVE: Alinear las líneas de base del texto */
+    align-items: baseline; /* Alinea las líneas de base del texto */
     padding: 0; /* Eliminar cualquier padding */
     gap: 15px; /* Espacio entre cada unidad (ej. "15 DÍAS", "10 HRS") */
     background-color: transparent; /* Asegurarse de que no tenga fondo */
     border: none; /* Asegurarse de que no tenga borde */
     border-radius: 0; /* Asegurarse de que no tenga radio de borde */
     flex-wrap: nowrap; /* IMP: Evita que los elementos salten a la siguiente línea */
-    /* Añadir un poco de margen horizontal para prevenir recorte si es el caso */
-    margin: 0 10px; /* <--- Añadido para dar más espacio horizontal general */
+    margin: 0 10px; /* Añadido para dar más espacio horizontal general */
 }
 
 /* Estilos para cada grupo de Número y Etiqueta (ej. "15 DÍAS") */
@@ -87,10 +86,10 @@
     font-size: 4em; /* Mismo tamaño que los números para que coincidan */
     font-weight: 700; /* Negrita como los números */
     color: #1A2E3B; /* Mismo color que los números */
-    line-height: 1; /* <--- AJUSTE CLAVE: Asegurar la misma línea de altura que los números */
+    line-height: 1; /* AJUSTE CLAVE: Asegurar la misma línea de altura que los números */
     text-shadow: none; /* Sin sombra */
     margin: 0 5px; /* Espacio a los lados de los dos puntos */
-    padding-bottom: 5px; /* <--- AJUSTE CLAVE: Ajuste vertical para alinear con los números */
+    padding-bottom: 5px; /* AJUSTE CLAVE: Ajuste vertical para alinear con los números */
 }
 
 /* --- Keyframes para la animación de aparición del texto --- */
@@ -213,6 +212,21 @@ body {
     margin: 0 0 5px 0; /* Espacio reducido */
     text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
     line-height: 1.2;
+}
+
+/* --- NUEVO ESTILO PARA LA IMAGEN DE ANDREA --- */
+.andrea-profile-pic {
+    width: 150px; /* Ajusta el tamaño según desees */
+    height: 150px; /* Debe ser igual al ancho para un círculo perfecto */
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+    border: 5px solid #C19A6B; /* Borde dorado alrededor de la imagen */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Sombra suave */
+    margin: 15px auto 20px auto; /* Espacio arriba, centrado, espacio abajo */
+    display: block; /* Asegura que tome su propio espacio y se centre */
+    opacity: 0; /* Para la animación de aparición */
+    animation: fadeInSlideUp 1s ease-out forwards; /* Animación */
+    animation-delay: 1.0s; /* Aparece después del nombre de Andrea */
 }
 
 /* Estilo para "El Sueño Comienza" */
@@ -594,6 +608,13 @@ body {
     .signature-name {
         font-size: 3.2em; /* Ajuste para tabletas */
     }
+    /* NUEVO: Ajuste para la imagen de Andrea en tabletas */
+    .andrea-profile-pic {
+        width: 120px;
+        height: 120px;
+        margin: 10px auto 15px auto;
+    }
+
     /* Nuevos tamaños para textos destacados en tabletas */
     .header-slogan {
         font-size: 1.8em;
@@ -634,7 +655,7 @@ body {
     }
     .countdown-number {
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
-        font-size: 2.8em; /* <-- REDUCIDO LIGERAMENTE DE 3.0em a 2.8em */
+        font-size: 2.8em; /* REDUCIDO LIGERAMENTE DE 3.0em a 2.8em */
     }
     .countdown-label {
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
@@ -642,13 +663,13 @@ body {
     }
     .countdown-separator { /* Ajuste de tamaño para tabletas */
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
-        font-size: 2.8em; /* <-- REDUCIDO LIGERAMENTE DE 3.0em a 2.8em */
-        padding-bottom: 3px; /* <-- AJUSTADO EL PADDING INFERIOR PARA ALINEACIÓN */
+        font-size: 2.8em; /* REDUCIDO LIGERAMENTE DE 3.0em a 2.8em */
+        padding-bottom: 3px; /* AJUSTADO EL PADDING INFERIOR PARA ALINEACIÓN */
     }
 
     .countdown-timer {
-        gap: 10px; /* <-- REDUCIDO EL ESPACIO LIGERAMENTE DE 12px a 10px ya que la fuente es más pequeña */
-        margin: 0 5px; /* <-- Ajuste para dar más espacio horizontal */
+        gap: 10px; /* REDUCIDO EL ESPACIO LIGERAMENTE DE 12px a 10px ya que la fuente es más pequeña */
+        margin: 0 5px; /* Ajuste para dar más espacio horizontal */
     }
 
     /* Botones y dirección en tabletas */
@@ -695,6 +716,13 @@ body {
     .signature-name {
         font-size: 2.8em; /* Ajuste para móviles */
     }
+    /* NUEVO: Ajuste para la imagen de Andrea en móviles */
+    .andrea-profile-pic {
+        width: 100px;
+        height: 100px;
+        margin: 10px auto 15px auto;
+    }
+
     /* Nuevos tamaños para textos destacados en móviles */
     .header-slogan {
         font-size: 1.5em;
@@ -720,6 +748,8 @@ body {
         font-size: 0.9em; /* Asegura el tamaño para móvil */
     }
     .placeholder-chambelan {
+        font-style: italic;
+        opacity: 0.7;
         font-size: 0.8em;
     }
 
@@ -735,7 +765,7 @@ body {
     }
     .countdown-number {
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
-        font-size: 2.0em; /* <-- REDUCIDO LIGERAMENTE DE 2.2em a 2.0em */
+        font-size: 2.0em; /* REDUCIDO LIGERAMENTE DE 2.2em a 2.0em */
     }
     .countdown-label {
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
@@ -743,12 +773,12 @@ body {
     }
     .countdown-separator { /* Ajuste de tamaño para móviles */
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
-        font-size: 2.0em; /* <-- REDUCIDO LIGERAMENTE DE 2.2em a 2.0em */
-        padding-bottom: 2px; /* <-- AJUSTADO EL PADDING INFERIOR PARA ALINEACIÓN */
+        font-size: 2.0em; /* REDUCIDO LIGERAMENTE DE 2.2em a 2.0em */
+        padding-bottom: 2px; /* AJUSTADO EL PADDING INFERIOR PARA ALINEACIÓN */
     }
     .countdown-timer {
-        gap: 6px; /* <-- REDUCIDO EL ESPACIO LIGERAMENTE DE 8px a 6px */
-        margin: 0 5px; /* <-- Ajuste para dar más espacio horizontal */
+        gap: 6px; /* REDUCIDO EL ESPACIO LIGERAMENTE DE 8px a 6px */
+        margin: 0 5px; /* Ajuste para dar más espacio horizontal */
     }
     /* Botones y dirección en smartphones */
     .rsvp-section {
