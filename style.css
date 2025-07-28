@@ -214,7 +214,7 @@ body {
     line-height: 1.2;
 }
 
-/* --- NUEVO ESTILO PARA LA IMAGEN DE ANDREA --- */
+/* --- ESTILO PARA LA IMAGEN DE ANDREA (YA EXISTENTE) --- */
 .andrea-profile-pic {
     width: 150px; /* Ajusta el tamaño según desees */
     height: 150px; /* Debe ser igual al ancho para un círculo perfecto */
@@ -582,6 +582,16 @@ body {
 .godparent-info.enmarcado {
     margin: 5px; /* Pequeño margen para separarlo del texto adyacente */
     padding: 5px 10px;
+}
+
+/* --- NUEVO ESTILO PARA LA IMAGEN DEL ITINERARIO --- */
+.itinerary-image {
+    max-width: 100%; /* Asegura que la imagen no se desborde */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Para que margin: auto funcione correctamente */
+    margin: 0 auto; /* Elimina todos los márgenes y la centra horizontalmente */
+    padding: 0; /* Asegura que no tenga padding interno */
+    box-shadow: none; /* Si tenía alguna sombra, la quita */
 }
 
 
