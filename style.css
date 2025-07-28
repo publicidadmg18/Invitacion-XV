@@ -715,84 +715,84 @@ body {
         padding: 0;
     }
 
-    /* REDUCIMOS MÁS LOS BORDES DECORATIVOS EN MÓVILES */
+    /* AÚN MÁS REDUCIDOS LOS BORDES DECORATIVOS EN MÓVILES MUY PEQUEÑOS */
     .invitation-container::before,
     .invitation-container::after {
-        width: 30px; /* Reducido de 40px */
+        width: 20px; /* Reducido a 20px */
     }
 
-    /* REDUCIMOS EL PADDING HORIZONTAL DEL CONTENIDO INTERNO EN MÓVILES */
+    /* AÚN MÁS REDUCIDO EL PADDING HORIZONTAL DEL CONTENIDO INTERNO EN MÓVILES */
     .inner-frame {
-        padding: 10px 40px; /* Reducido de 60px */
+        padding: 10px 25px; /* Reducido a 25px */
     }
     .decorative-title {
-        font-size: 1.8em; /* Ajuste para móviles */
+        font-size: 1.6em; /* Ajuste para móviles */
     }
     .signature-name {
-        font-size: 2.5em; /* Ajuste para móviles */
+        font-size: 2.2em; /* Ajuste para móviles */
     }
     /* NUEVO: Ajuste para la imagen de Andrea en móviles */
     .andrea-profile-pic {
-        width: 90px;
-        height: 90px;
+        width: 80px;
+        height: 80px;
         margin: 10px auto 15px auto;
     }
 
     /* Nuevos tamaños para textos destacados en móviles */
     .header-slogan {
-        font-size: 1.3em;
+        font-size: 1.2em;
     }
     .parents-intro-text {
-        font-size: 1.1em;
+        font-size: 1.0em;
     }
     .madrina-intro-text {
-        font-size: 1.0em;
+        font-size: 0.9em;
     }
     /* El texto general se ajusta por el 1.5em de cada clase, pero aquí reducimos el base */
     .content-text-block p,
     .details-section p,
     .location-address,
     .additional-info {
-        font-size: 0.9em; /* Reducido aún más para pantallas muy pequeñas */
+        font-size: 0.85em; /* Reducido aún más para pantallas muy pequeñas */
     }
     .parents-names, .godparent-info {
-        font-size: 0.8em; /* Ajuste específico para estos nombres */
+        font-size: 0.75em; /* Ajuste específico para estos nombres */
     }
     /* Chambelanes */
     .chambelanes-section p {
-        font-size: 0.85em; /* Asegura el tamaño para móvil */
+        font-size: 0.8em; /* Asegura el tamaño para móvil */
     }
     .placeholder-chambelan {
         font-style: italic;
         opacity: 0.7;
-        font-size: 0.75em;
+        font-size: 0.7em;
     }
 
     .chambelanes-section h2, .details-section h2, .agenda-section h2 {
-        font-size: 1.2em; /* Mantiene su tamaño relativo */
-    }
-    .invitation-phrase {
         font-size: 1.1em; /* Mantiene su tamaño relativo */
     }
-    /* Contador */
+    .invitation-phrase {
+        font-size: 1.0em; /* Mantiene su tamaño relativo */
+    }
+    /* Contador - Ajustes MÁS AGRESIVOS */
     .countdown-section h2 { /* Ajuste de tamaño para móviles */
-        font-size: 1.1em; /* Reducido */
+        font-size: 1.0em; /* MUY REDUCIDO */
     }
     .countdown-number {
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
-        font-size: 1.6em; /* Más reducido aún */
+        font-size: 1.4em; /* MUY REDUCIDO */
     }
     .countdown-label {
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
-        font-size: 0.65em; /* Más reducido */
+        font-size: 0.6em; /* MUY REDUCIDO */
     }
     .countdown-separator { /* Ajuste de tamaño para móviles */
         font-family: 'Montserrat', sans-serif; /* Aplica la fuente */
-        font-size: 1.6em; /* Más reducido aún */
-        padding-bottom: 0px; /* AJUSTADO EL PADDING INFERIOR PARA ALINEACIÓN */
+        font-size: 1.4em; /* MUY REDUCIDO */
+        padding-bottom: 0px; /* Asegurar que esté al mínimo */
     }
     .countdown-timer {
-        gap: 2px; /* REDUCIDO EL ESPACIO AÚN MÁS */
+        gap: 1px; /* Espacio mínimo */
         margin: 0; /* Elimina márgenes extra */
     }
     /* Botones y dirección en smartphones */
